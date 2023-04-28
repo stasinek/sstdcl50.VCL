@@ -40,3 +40,6 @@ _ReSharper*/
 *.ils
 journal*.*
 *.map
+*.#*
+*.bpl
+*.csm
