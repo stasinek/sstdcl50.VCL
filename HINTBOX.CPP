@@ -217,7 +217,7 @@ for (int iLoop = 0, iLength; iLoop < iListCount; iLoop++)
         {
         for (iPos2 = 1, iLastSpace = 0, asTmp = ""; iLastSpace+iPos2<=iLength; )
             {
-             asTmp += Caption[iLastSpace+iPos2];
+             asTmp += Caption.SubString(iLastSpace+iPos2,1);
                size = TextExtentEx(&asTmp);
              // Make sure it doesn't extend the frames bottom
              if (size.cx >= (Rect.Right-Rect.Left))
