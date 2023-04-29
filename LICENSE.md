@@ -1,5 +1,5 @@
 /*****************************************************************************
-https://github.com/stasinek/dclusr50.VCL
+https://github.com/stasinek/sstdcl50.VCL
 COPYRIGHT (c) 2002-2023 Stanislaw Stasiak http://SSTSOFT.pl
 All rights reserved.
 

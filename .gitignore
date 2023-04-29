@@ -42,4 +42,6 @@ journal*.*
 *.map
 *.#*
 *.bpl
+*.bpi
 *.csm
+*.dsk

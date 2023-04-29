@@ -27,7 +27,7 @@
  * --------------------------------------------------------------------------*/
 #include <vcl.h>
 #pragma hdrstop
-USERES("dclusr50.res");
+USERES("sstdcl50.res");
 USEPACKAGE("vcl50.bpi");
 USEUNIT("ADVBAR.CPP");
 USERES("ADVBAR.dcr");

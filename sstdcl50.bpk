@@ -3,8 +3,8 @@
 <PROJECT>
   <MACROS>
     <VERSION value="BCB.05.03"/>
-    <PROJECT value="dclusr50.bpl"/>
-    <OBJFILES value="&quot;c:\program files\borland\cbuilder5\lib\dclusr50.obj&quot; 
+    <PROJECT value="sstdcl50.bpl"/>
+    <OBJFILES value="&quot;c:\program files\borland\cbuilder5\lib\sstdcl50.obj&quot; 
       &quot;c:\program files\borland\cbuilder5\lib\ADVBAR.obj&quot; 
       &quot;c:\program files\borland\cbuilder5\lib\BARGRAPH.obj&quot; 
       &quot;c:\program files\borland\cbuilder5\lib\BROWSEDLG.obj&quot; 
@@ -13,7 +13,7 @@
       &quot;c:\program files\borland\cbuilder5\lib\EXERES.obj&quot; 
       &quot;c:\program files\borland\cbuilder5\lib\FRAMEPAN.obj&quot; 
       &quot;c:\program files\borland\cbuilder5\lib\HINTBOX.obj&quot; &quot;c:\program files\borland\cbuilder5\lib\SYSTRAY.obj&quot;"/>
-    <RESFILES value="dclusr50.res ADVBAR.dcr BARGRAPH.dcr BROWSEDLG.dcr EXEDLG.dcr EXEINFO.dcr 
+    <RESFILES value="sstdcl50.res ADVBAR.dcr BARGRAPH.dcr BROWSEDLG.dcr EXEDLG.dcr EXEINFO.dcr 
       EXERES.dcr FRAMEPAN.dcr HINTBOX.dcr SYSTRAY.dcr"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -32,7 +32,7 @@
     <LINKER value="ilink32"/>
     <USERDEFINES value="NO_WIN32_LEAN_AND_MEAN"/>
     <SYSDEFINES value="NO_STRICT;USEPACKAGES"/>
-    <MAINSOURCE value="dclusr50.cpp"/>
+    <MAINSOURCE value="sstdcl50.cpp"/>
     <INCLUDEPATH value="$(BCB)\include;$(BCB)\include\vcl"/>
     <LIBPATH value="$(BCB)\lib\obj;$(BCB)\lib"/>
     <WARNINGS value="-w-par -w-8027 -w-8026"/>

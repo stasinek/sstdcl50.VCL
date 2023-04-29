@@ -1,4 +1,4 @@
-# dclusr50.VCL
+# sstdcl50.VCL
 
 
 1. Put those files into into ./SRC/OBSOLETE/PACKAGES
