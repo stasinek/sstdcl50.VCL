@@ -118,7 +118,8 @@ thisrect.bottom = ClientRect.Bottom;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall THintBox::DrawBoxFrame() {
+void __fastcall THintBox::DrawBoxFrame()
+{
 static TRect tempRect;
 
 if (bDrawBox)
@@ -166,6 +167,7 @@ else
 
 void __fastcall THintBox::DrawBoxEx()
 {
+/*
 // Reset font style
 FBitmap->Canvas->Font->Assign(OFont);
 // Reset font style
@@ -307,6 +309,7 @@ for (int iLoop = 0, iLength; iLoop < iListCount; iLoop++)
 CONTINUE:
    iLineNo++;
   } // end for
+*/
 }
 //---------------------------------------------------------------------------
 
@@ -381,26 +384,28 @@ for (int iLoop = 0; iLoop < FLines->Count; iLoop++)
 #define GROUP_LAST     (DWORD)0x00
 #define GROUP_FIRST    (DWORD)0xFF
 
-int __fastcall THintBox::FindFirstChar(AnsiString *lpTextValue, char cFind, int iOldIndex, int ongroup) {
-static AnsiString asTmp;
-asTmp = *lpTextValue;
+int __fastcall THintBox::FindFirstChar(AnsiString *lpTextValue, char cFind, int iOldIndex, int ongroup)
+{
+char * asTmp = lpTextValue->c_str();
 
-for (int iIndex = iOldIndex, iLength = asTmp.Length(); iIndex <= iLength; iIndex++)
+for (int iIndex = iOldIndex-1, iLength = lpTextValue->Length(); iIndex < iLength; iIndex++)
     {
      if (asTmp[iIndex]!=cFind) continue;
      else
      if (ongroup==GROUP_LAST)
         {
-         if (iIndex+1 <= iLength ? asTmp[iIndex+1]!=cFind : true)
-             return iIndex;
+         if (iIndex+1 < iLength ? asTmp[iIndex+1]!=cFind : true)
+             return iIndex+1;
         }
-     else return iIndex;
+     else return iIndex+1;
     }
 return 0;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall THintBox::ParseLine(int index) {
+void __fastcall THintBox::ParseLine(int index)
+{
+
 static AnsiString asText;
 int iLastPos = 1, iEndPos, iStartPos;
 asText = FLines->Strings[index];
@@ -512,7 +517,8 @@ for (;;)
 }
 //---------------------------------------------------------------------------
 
-TSize __fastcall THintBox::TextExtentEx(AnsiString *lpTextValue) {
+TSize __fastcall THintBox::TextExtentEx(AnsiString *lpTextValue)
+{
 static TSize tmpSize; tmpSize.cx = 0; tmpSize.cy = 0;
 static AnsiString asText;
 
@@ -653,7 +659,8 @@ for (;;)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall THintBox::TextOutEx(int X, int Y, AnsiString *lpTextValue) {
+void __fastcall THintBox::TextOutEx(int X, int Y, AnsiString *lpTextValue)
+{
 static TSize tmpSize; tmpSize.cx = X;
 static AnsiString asText;
 int iLastPos = 1, iEndPos, iStartPos;
