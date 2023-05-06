@@ -25,10 +25,10 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * --------------------------------------------------------------------------*/
-#ifndef tsoft_bargraph_H
-#define tsoft_bargraph_H
+#ifndef __tsoft_bargraph_HDR__
+#define __tsoft_bargraph_HDR__
 //---------------------------------------------------------------------------
-#include "framepan.h"
+#include "FRAMEPAN.H"
 //---------------------------------------------------------------------------
 
 enum TGridKind    { gkSolid,gkJustOneDot,gkDot,gkDash };
@@ -38,7 +38,7 @@ enum TBarKind     { bkBar,bkLine };
 
 typedef struct __Items
 {
-     __fastcall __Items();
+	 __Items();
 struct __Item { TColor Color; int Value; } *Item;
 void __fastcall Set(int AIndex, TColor AColor, int AValue);
 int  __fastcall Add(TColor AColor, int AValue);
@@ -47,7 +47,7 @@ int  __fastcall Del(int AIndex);
 void __fastcall Clr();
 int  __fastcall GetCount();
 int  __fastcall SetCount(int ACount);
-     __fastcall ~__Items();
+	 ~__Items();
 int Count;
 } *LPTBarDataStruct, TBarDataStruct;
 //---------------------------------------------------------------------------
@@ -108,8 +108,8 @@ public:
        __fastcall ~TBarGraph(void);
 __published:
   __property Align;
-  __property TBorderKind BorderKind = {read=FBorderKind, write=SetBorderKind,default=bLowered};
-  __property TBorderSize BorderSize = {read=FBorderSize, write=SetBorderSize,default=bSingle};
+  __property TBorderKind BorderKind = {read=FBorderKind, write=SetBorderKind,default=abkLowered};
+  __property TBorderSize BorderSize = {read=FBorderSize, write=SetBorderSize,default=absSingle};
   __property TColor Color = {read=FColor,write=SetColor,default=clGreen};
 
   __property TColor GridColor = {read=FGridColor, write=SetGridColor,default=clBlack};

@@ -27,7 +27,7 @@
  * --------------------------------------------------------------------------*/
 #include <vcl.h>
 #pragma hdrstop
-#include "bargraph.h"
+#include "BARGRAPH.H"
 #pragma package(smart_init)
 //---------------------------------------------------------------------------
 // ValidCtrCheck is used to assure that the components created do not have
@@ -63,8 +63,8 @@ FBarDataCount = 0;
 FBarKind = bkBar;
 FBarData = new TBarDataStruct();
 
-FBorderKind = bLowered;
-FBorderSize = bSingle;
+FBorderKind = abkLowered;
+FBorderSize = absSingle;
 FBitmap = new Graphics::TBitmap;
 FCanvasRect = ClientRect;
 Height = 102;
@@ -82,38 +82,43 @@ ControlStyle = ControlStyle << csFramed << csOpaque;
 
 void __fastcall TBarGraph::Paint(void)
 {
-if (ClientRect.Right!=FBitmap->Width || ClientRect.Bottom!=FBitmap->Height)
+RECT crect;
+#define COPY_RECT(x,y) x.left = y.Left; x.top = y.Top; x.right = y.Right; x.bottom = y.Bottom;
+COPY_RECT(crect,ClientRect)
+if (crect.right!=FBitmap->Width || crect.bottom!=FBitmap->Height)
    {
-    this->ForceRepaint();
-    return;
+	this->ForceRepaint();
+	return;
    }
 else
-   {::GetClipBox(this->Canvas->Handle,&ClientRect);
-    ::BitBlt(this->Canvas->Handle,
-             0,0,ClientRect.Right,ClientRect.Bottom,
-             FBitmap->Canvas->Handle,
-             0,0,
-             SRCCOPY);
+   {::GetClipBox(this->Canvas->Handle,&crect);
+	::BitBlt(this->Canvas->Handle,
+			 0,0,crect.right,crect.bottom,
+			 FBitmap->Canvas->Handle,
+			 0,0,
+			 SRCCOPY);
    }
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TBarGraph::ForceRepaint(void)
 {
-FBitmap->Width = ClientRect.Right; FBitmap->Height = ClientRect.Bottom;
+RECT crect;
+COPY_RECT(crect,ClientRect)
+FBitmap->Width = crect.right; FBitmap->Height = crect.bottom;
 FCanvasRect = ClientRect;
 
-if (FBorderSize==bSingle)
+if (FBorderSize==absSingle)
    {FCanvasRect.Left=1;
-    FCanvasRect.Right=ClientRect.Right-1;
-    FCanvasRect.Top=1;
-    FCanvasRect.Bottom=ClientRect.Bottom-1;
+	FCanvasRect.Right=crect.right-1;
+	FCanvasRect.Top=1;
+	FCanvasRect.Bottom=crect.bottom-1;
    }
-if (FBorderKind==bDouble)
+if (FBorderSize==absDouble)
    {FCanvasRect.Left=2;
-    FCanvasRect.Right=ClientRect.Right-2;
-    FCanvasRect.Top=2;
-    FCanvasRect.Bottom=ClientRect.Bottom-2;
+	FCanvasRect.Right=crect.right-2;
+	FCanvasRect.Top=2;
+	FCanvasRect.Bottom=crect.bottom-2;
    }
 
 FBitmap->Canvas->Brush->Color = Color;
@@ -122,27 +127,27 @@ PaintGridHorizontal();
 PaintGridVertical();
 PaintBar();
 
-TRamka::PaintBorder(FBitmap->Canvas->Handle,&RRect,&ClientRect,FBorderKind,FBorderSize);
+TRamka::PaintBorder(FBitmap->Canvas->Handle,&RRect,&crect,FBorderKind,FBorderSize);
 
 ::BitBlt(this->Canvas->Handle,
-         0,0,ClientRect.Right,ClientRect.Bottom,
-         FBitmap->Canvas->Handle,
-         0,0,
-         SRCCOPY);
+		 0,0,crect.right,crect.bottom,
+		 FBitmap->Canvas->Handle,
+		 0,0,
+		 SRCCOPY);
 }
 //---------------------------------------------------------------------------
 #define SETVALUE(oldvalue,newvalue) \
 if (oldvalue==newvalue)\
-    return;\
+	return;\
 oldvalue = newvalue;
 
 #define SETMINMAXVALUE(oldvalue,minvalue,maxvalue,newvalue) \
 if (newvalue ==oldvalue)\
-    return;\
+	return;\
 if (newvalue > maxvalue)\
-    return;\
+	return;\
 if (newvalue < minvalue)\
-    return;\
+	return;\
 oldvalue = newvalue;
 
 void __fastcall TBarGraph::SetGridVisible(TGridVisible AGridVisibleValue)
@@ -257,12 +262,15 @@ else
     switch (GridKindHorizontal)
         {
          case gkDash:
-         FBitmap->Canvas->Pen->Style = psDot;
+		 FBitmap->Canvas->Pen->Style = psDot;
+		 break;
+		 case gkSolid:
+		 FBitmap->Canvas->Pen->Style = psSolid;
+		 break;
+		 default:
+		 FBitmap->Canvas->Pen->Style = psSolid;
          break;
-         case gkSolid:
-         FBitmap->Canvas->Pen->Style = psSolid;
-         break;
-        }
+		}
     FBitmap->Canvas->Pen->Color = GridColor;
     for (Y = FCanvasRect.Bottom - EGridStepHorizontal; Y > FCanvasRect.Top; Y-=EGridStepHorizontal)
         {
@@ -317,19 +325,21 @@ if (GridKindVertical==gkDot)
    }
 else
    {
-    switch (GridKindVertical)
+	switch (GridKindVertical)
         {
-         case gkDash:
-         FBitmap->Canvas->Pen->Style = psDot;
-         break;
-         case gkSolid:
-         FBitmap->Canvas->Pen->Style = psSolid;
-         break;
-        }
-    FBitmap->Canvas->Pen->Color = GridColor;
+		 case gkJustOneDot:
+		 case gkDash:
+		 FBitmap->Canvas->Pen->Style = psDot;
+		 break;
+		 case gkSolid:
+         default:
+		 FBitmap->Canvas->Pen->Style = psSolid;
+		 break;
+		}
+	FBitmap->Canvas->Pen->Color = GridColor;
 
-    for (X = FCanvasRect.Left + EGridStepVertical; X < FCanvasRect.Right; X+=EGridStepVertical)
-        {
+	for (X = FCanvasRect.Left + EGridStepVertical; X < FCanvasRect.Right; X+=EGridStepVertical)
+		{
          FBitmap->Canvas->MoveTo(X,FCanvasRect.Top);
          FBitmap->Canvas->LineTo(X,FCanvasRect.Bottom);
         }

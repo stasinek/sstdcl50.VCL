@@ -1,41 +1,39 @@
-/***************************************************************************/
-/*                      THintBox version 0.85                              */
-/* ----------------------------------------------------------------------- */
-/* What is it: This is a quick implementation of the HintBox's that you can*/
-/* ----------- see in many Lotus products (for instance Lotus SmartSuite). */
-/*                                                                         */
-/* How to install it: Go to the "Component" Menuitem and select "Install   */
-/* ------------------ Component...". Click the "Browse" button next to the */
-/*                    "Unit file name:". Choose "HintBox.cpp".             */
-/*                    Choose the apporpriate package to install THintBox in*/
-/*                    to, from the "Package file name" combobox (normally: */
-/*                    dclusr35.bpk or dclusr40.bpk)                        */
-/*                    THintBox will register it self in the "Samples"      */
-/*                    palette.                                             */
-/*                                                                         */
-/* ----------------------------------------------------------------------- */
-/* 05/09-1999   Add support for HTML tags. This means   Jeppe Cramon       */
-/*              that THintBox, now is able to display                      */
-/*              HTML formatted text. So far only a very                    */
-/*              minor fraction of the HTML standard is                     */
-/*              supported:                                                 */
-/*               Center Text - <CENTER>..Text..</CENTER>                   */
-/*               Line break  - <BR>                                        */
-/*               Bold        - <B>..Text..</B>                             */
-/*               Italic      - <I>..Text..</I>                             */
-/*               Underline   - <U>..Text..</U>                             */
-/*               StrikeOut   - <STRIKE>..Text..</STRIKE>                   */
-/*              NEW: You can now also choose if THintBox                   */
-/*                   should draw it's hintbox. Setting                     */
-/*                   the DrawHintBox property to false                     */
-/*                   will make it look like a label, but                   */
-/*                   with all the HintBox features ;-)                     */
-/***************************************************************************/
+/****************************************************************************/
+/* THintBox version 0.85 05/09-1999 Jeppe Cramon      		   				*/
+/* -----------------------------------------------------------------------  */
+/* What is it: This is a quick implementation of the HintBox's that you can */
+/* see in many Lotus products (for instance Lotus SmartSuite). 				*/
+/*                                                                          */
+/* How to install it: Go to the "Component" Menuitem and select "Install    */
+/* -----------------------------------------------------------------------  */
+/* Component...". Click the "Browse" button next to the  					*/
+/*               "Unit file name:". Choose "HintBox.cpp".                   */
+/*               Choose the apporpriate package to install THintBox in 		*/
+/*               to, from the "Package file name" combobox (normally:  		*/
+/*               dclusr35.bpk or dclusr40.bpk)                         		*/
+/*               THintBox will register it self in the "Samples"       		*/
+/*               palette.                                              		*/
+/*                                                                          */
+/* -----------------------------------------------------------------------  */
+/* Add support for HTML tags.                                               */
+/* This means that THintBox, now is able to display HTML formatted text.    */
+/* So far only a very minor fraction of the HTML standard is supported:     */
+/*               Center Text - <CENTER>..Text..</CENTER>                    */
+/*               Line break  - <BR>                                         */
+/*               Bold        - <B>..Text..</B>                              */
+/*               Italic      - <I>..Text..</I>                              */
+/*               Underline   - <U>..Text..</U>                              */
+/*               StrikeOut   - <STRIKE>..Text..</STRIKE>                    */
+/*                                                                          */
+/* NEW: You can now also choose if THintBox should draw it's hintbox.       */
+/* Setting the DrawHintBox property to false will make it look like a label */
+/* but with all the HintBox features ;-)                     			    */
+/****************************************************************************/
 
 //---------------------------------------------------------------------------
 #include <vcl.h>
 #pragma hdrstop
-#include "HintBox.h"
+#include "HINTBOX.H"
 #pragma package(smart_init)
 //---------------------------------------------------------------------------
 

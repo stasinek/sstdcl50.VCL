@@ -25,11 +25,16 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * --------------------------------------------------------------------------*/
-#ifndef tsoft_advbar_H
-#define tsoft_advbar_H
+#ifndef __tsoft_advbar_HDR__
+#define __tsoft_advbar_HDR__
 //---------------------------------------------------------------------------
-#include "framepan.h"
+#include "ADVBAR.H"
+#include "FRAMEPAN.H"
+#if __BORLANDC__ > 0x0550
+#include <vcl.comctrls.hpp>
+#else
 #include <vcl/comctrls.hpp>
+#endif
 //---------------------------------------------------------------------------
 //enum TProgressBarOrientation { pbHorizontal, pbVertical };
 //enum TAlignment { taCenter,taLeftJustify, taRightJustify }; //Classes::taCenter
@@ -37,19 +42,19 @@
 class PACKAGE TAdvancedBar : public TGraphicControl
 {
 private:
-    bool Block;
-    Graphics::TBitmap *FBitmap;
+	bool Block;
+	Graphics::TBitmap *FBitmap;
 
-    void __fastcall SetOrientation(TProgressBarOrientation Value);
-    TProgressBarOrientation FOrientation;
+	void __fastcall SetOrientation(TProgressBarOrientation Value);
+	TProgressBarOrientation FOrientation;
 
-    void __fastcall SetBorderKind(TBorderKind Value);
-    TBorderKind FBorderKind;
-    void __fastcall SetBorderSize(TBorderSize Value);
-    TBorderSize FBorderSize;
+	void __fastcall SetBorderKind(TBorderKind Value);
+	TBorderKind FBorderKind;
+	void __fastcall SetBorderSize(TBorderSize Value);
+	TBorderSize FBorderSize;
 
-    void __fastcall ForceRepaint(void);
-    void __fastcall PaintBar();
+	void __fastcall ForceRepaint(void);
+	void __fastcall PaintBar();
 
     TRect  FInnerRect, FBackRect, FForeRect;
     void __fastcall CalculatePixelWidth(void);
@@ -87,8 +92,8 @@ public:
 __published:
     __property Align;
     __property TProgressBarOrientation Orientation = {read=FOrientation,write=SetOrientation,default=pbHorizontal};
-    __property TBorderKind BorderKind = {read=FBorderKind,write=SetBorderKind,default=bLowered};
-    __property TBorderSize BorderSize = {read=FBorderSize,write=SetBorderSize,default=bSingle};
+    __property TBorderKind BorderKind = {read=FBorderKind,write=SetBorderKind,default=abkLowered};
+    __property TBorderSize BorderSize = {read=FBorderSize,write=SetBorderSize,default=absSingle};
     __property TColor TextForeColor = {read=FTextForeColor,write=SetTextForeColor,default=clHighlightText};
     __property TColor TextBackColor = {read=FTextBackColor,write=SetTextBackColor,default=clBtnFace};
     __property ParentFont;

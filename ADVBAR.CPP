@@ -30,7 +30,8 @@
 //---------------------------------------------------------------------------
 #include <vcl.h>
 #pragma hdrstop
-#include "advbar.h"
+#include "ADVBAR.H"
+#include "FRAMEPAN.H"
 #pragma package(smart_init)
 //---------------------------------------------------------------------------
 // ValidCtrCheck is used to assure that the components created do not have
@@ -57,7 +58,7 @@ __fastcall TAdvancedBar::TAdvancedBar(TComponent* Owner)
     : TGraphicControl(Owner), FTextAlignment(taCenter), FTextSuffix("%"),
     FInnerRect(), FBackRect(), FForeRect(),
     FMin(0), FMax(100),FPos(0),FBarForeColor(clHighlight),FBarBackColor(clBtnFace),FTextBackColor(clHighlight),FTextForeColor(clHighlightText),
-    FShowText(false), FOrientation(pbHorizontal),Block(false),FBorderSize(bSingle),FBorderKind(bLowered)
+	FShowText(false), FOrientation(pbHorizontal),Block(false),FBorderSize(absSingle),FBorderKind(abkLowered)
 {
         FBitmap = new Graphics::TBitmap;
          Height = 20;
@@ -77,28 +78,33 @@ else FPixelWidth = int(int(FInnerRect.Bottom-FInnerRect.Top) * int(FPercent)) / 
 
 void __fastcall TAdvancedBar::CalculatePercentDone()
 {
-register double SDif = FMax-FMin;
+double SDif = FMax-FMin;
 if (SDif == 0) FPercent = 100;
 else FPercent = double(100 * double(FPos-FMin))/double(SDif);
 CalculatePixelWidth();
 }
 //---------------------------------------------------------------------------
 
+#define COPY_RECT(x,y) x.left = y.Left; x.top = y.Top; x.right = y.Right; x.bottom = y.Bottom;
+
 void __fastcall TAdvancedBar::Paint(void)
 {
-if (ClientRect.Right!=FBitmap->Width || ClientRect.Bottom!=FBitmap->Height)
+RECT crect;
+COPY_RECT(crect,ClientRect)
+
+if (crect.right!=FBitmap->Width || crect.bottom!=FBitmap->Height)
    {
-    this->ForceRepaint();
-    return;
+	this->ForceRepaint();
+	return;
    }
 else
    {
-    ::GetClipBox(this->Canvas->Handle,&ClientRect);
-    ::BitBlt(this->Canvas->Handle,
-             ClientRect.Left,ClientRect.Top,ClientRect.Right-ClientRect.Left,ClientRect.Bottom-ClientRect.Top,
-             FBitmap->Canvas->Handle,
-             ClientRect.Left,ClientRect.Top,
-             SRCCOPY);
+	::GetClipBox(this->Canvas->Handle,&crect);
+	::BitBlt(this->Canvas->Handle,
+			 crect.left,crect.top,crect.right-crect.left,crect.bottom-crect.top,
+			 FBitmap->Canvas->Handle,
+			 crect.left,crect.top,
+			 SRCCOPY);
    }
 }
 //---------------------------------------------------------------------------
@@ -108,43 +114,45 @@ void __fastcall TAdvancedBar::ForceRepaint(void)
 while (Block==true) Application->ProcessMessages();
 Block = true;
 //---------------------------------------------------
-FBitmap->Width = ClientRect.Right; FBitmap->Height = ClientRect.Bottom;
+RECT crect;
+COPY_RECT(crect,ClientRect)
+FBitmap->Width = crect.right; FBitmap->Height = crect.bottom;
 CalculatePercentDone();
-TRamka::PaintBorder(FBitmap->Canvas->Handle,&FInnerRect,&ClientRect,FBorderKind,FBorderSize);
+TRamka::PaintBorder(FBitmap->Canvas->Handle,&FInnerRect,&crect,FBorderKind,FBorderSize);
 //---------------------------------------------------
 if (FOrientation==pbHorizontal)
-    {
-    FForeRect.Right = FInnerRect.Left + FPixelWidth;
-    FForeRect.Top = FInnerRect.Top;
-    }
+	{
+	FForeRect.Right = FInnerRect.Left + FPixelWidth;
+	FForeRect.Top = FInnerRect.Top;
+	}
 else
-    {
-    FForeRect.Top = FInnerRect.Bottom - FPixelWidth;
-    FForeRect.Right = FInnerRect.Right;
-    }
+	{
+	FForeRect.Top = FInnerRect.Bottom - FPixelWidth;
+	FForeRect.Right = FInnerRect.Right;
+	}
 FForeRect.Bottom = FInnerRect.Bottom;
 FForeRect.Left = FInnerRect.Left;
 
 if (FOrientation==pbHorizontal)
-    {
-    FBackRect.Left = FInnerRect.Left + FPixelWidth;
-    FBackRect.Bottom = FInnerRect.Bottom;
-    }
+	{
+	FBackRect.Left = FInnerRect.Left + FPixelWidth;
+	FBackRect.Bottom = FInnerRect.Bottom;
+	}
 else
-    {
-    FBackRect.Bottom = FInnerRect.Bottom - FPixelWidth;
-    FBackRect.Left = FInnerRect.Left;
-    }
+	{
+	FBackRect.Bottom = FInnerRect.Bottom - FPixelWidth;
+	FBackRect.Left = FInnerRect.Left;
+	}
 FBackRect.Right = FInnerRect.Right;
 FBackRect.Top = FInnerRect.Top;
 //---------------------------------------------------
 PaintBar(); PaintText();
 //---------------------------------------------------
 ::BitBlt(this->Canvas->Handle,
-         0,0,ClientRect.Right,ClientRect.Bottom,
-         FBitmap->Canvas->Handle,
-         0,0,
-         SRCCOPY);
+		 0,0,crect.right,crect.bottom,
+		 FBitmap->Canvas->Handle,
+		 0,0,
+		 SRCCOPY);
 Block = false;
 }
 //---------------------------------------------------------------------------
@@ -167,17 +175,17 @@ static AnsiString SText;
 if (FTextSuffix.Pos("%")==0) SText = IntToStr((int)FPos-FMin) + FTextSuffix;
 else SText = IntToStr((int)FPercent) + FTextSuffix;
 FBitmap->Canvas->Font->Assign(Font);
-register int iw = FInnerRect.Right-FInnerRect.Left, ih = FInnerRect.Bottom-FInnerRect.Top;
-register int  TextWidth = FBitmap->Canvas->TextWidth(SText);
+int iw = FInnerRect.Right-FInnerRect.Left, ih = FInnerRect.Bottom-FInnerRect.Top;
+int  TextWidth = FBitmap->Canvas->TextWidth(SText);
 int TextX;
 if (FTextAlignment==taCenter || FOrientation==pbVertical)  TextX = (iw  - TextWidth)/2;
 else if (FTextAlignment==taLeftJustify)  TextX = FInnerRect.Left+FBitmap->Canvas->TextWidth("0");
     else if (FTextAlignment==taRightJustify)  TextX = FInnerRect.Right-FBitmap->Canvas->TextWidth("0")-TextWidth;
         else return;
-register int TextHeight = FBitmap->Canvas->TextHeight(SText);
+int TextHeight = FBitmap->Canvas->TextHeight(SText);
 int TextY = (ih - TextHeight)/2;
 
-register int t2w = 2*TextWidth, t2h = 2*TextHeight;
+int t2w = 2*TextWidth, t2h = 2*TextHeight;
 if (t2w>iw || t2h>ih) return;
 
 FBitmap->Canvas->Brush->Style = bsClear;

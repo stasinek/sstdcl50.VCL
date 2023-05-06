@@ -25,8 +25,8 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * --------------------------------------------------------------------------*/
-#ifndef framepan_H
-#define framepan_H
+#ifndef __framepan_HDR__
+#define __framepan_HDR__
 //---------------------------------------------------------------------------
 #include <Controls.hpp>
 #include <Graphics.hpp>
@@ -34,8 +34,8 @@
 #include <Windows.hpp>
 //---------------------------------------------------------------------------
 
-enum TBorderKind { bNone, bRect, bLowered, bRaised };
-enum TBorderSize { bSingle, bDouble };
+enum TBorderKind { abkNone, abkRect, abkLowered, abkRaised };
+enum TBorderSize { absSingle, absDouble };
 
 class PACKAGE TRamka : public TGraphicControl
 {

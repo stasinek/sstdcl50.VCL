@@ -27,7 +27,7 @@
  * --------------------------------------------------------------------------*/
 #include <vcl.h>
 #pragma hdrstop
-#include "framepan.h"
+#include "FRAMEPAN.H"
 #pragma package(smart_init)
 //---------------------------------------------------------------------------
 // ValidCtrCheck is used to assure that the components created do not have
@@ -53,9 +53,9 @@ namespace Framepan
 __fastcall TRamka::TRamka(TComponent* Owner)
     : TGraphicControl(Owner)
 {
-FBorderKind = bRaised;
-FBorderSize = bSingle;
-     FColor = clNone;
+FBorderKind = abkRaised;
+FBorderSize = absSingle;
+	 FColor = clNone;
      Height = 200;
       Width = 100;
 ControlStyle = ControlStyle << csCaptureMouse << csClickEvents << csDoubleClicks << csReplicatable << csFramed;
@@ -82,7 +82,7 @@ RECT *__fastcall TRamka::PaintBorder(HDC hdc, RECT *retrect, RECT *thisrect,TBor
 HBRUSH hbrush; HPEN hpen;
 POINT SSize;
 
-static SBlock = false;
+static bool SBlock = false;
 while (SBlock==true) Application->ProcessMessages();
 SBlock = true;
 
@@ -90,136 +90,136 @@ SSize.x = thisrect->right - thisrect->left; SSize.y = thisrect->bottom - thisrec
 
 switch (ABorderKind)
    {
-    case bRect:
-         if (ABorderSize==bSingle)
-            {
-             hbrush = CreateSolidBrush(GetSysColor(COLOR_WINDOWFRAME));
-             RECT temprect = *thisrect;
-             temprect.left++; temprect.top++; temprect.right--; temprect.bottom--;
-             ::FrameRect(hdc,&temprect,hbrush);
-             DeleteObject(hbrush);
-            }
-         else
-            {
-             hbrush = CreateSolidBrush(GetSysColor(COLOR_WINDOWFRAME));
-             RECT temprect = *thisrect;
-             temprect.left++; temprect.top++; temprect.right--; temprect.bottom--;
-             ::FrameRect(hdc,&temprect,hbrush);
-             temprect.left++; temprect.top++; temprect.right--; temprect.bottom--;
-             ::FrameRect(hdc,&temprect,hbrush);
-             DeleteObject(hbrush);
-            }
-    break;
-    case bLowered:
-         if (ABorderSize==bSingle)
-            {
-             hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNHIGHLIGHT));
-             SelectObject(hdc,hpen);
-             ::MoveToEx(hdc,0,SSize.y-1,NULL);
-               ::LineTo(hdc,SSize.x,SSize.y-1);
-             ::MoveToEx(hdc,SSize.x-1,0,NULL);
-               ::LineTo(hdc,SSize.x-1,SSize.y);
-             DeleteObject(hpen);
-             hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNSHADOW));
-             SelectObject(hdc,hpen);
-             ::MoveToEx(hdc,0,SSize.y-1,NULL);
-               ::LineTo(hdc,0,0);
-               ::LineTo(hdc,SSize.x,0);
-             DeleteObject(hpen);
-            }
-         else
-            {
-             hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNHIGHLIGHT));
-             SelectObject(hdc,hpen);
-             ::MoveToEx(hdc,0,SSize.y-1,NULL);
-               ::LineTo(hdc,SSize.x,SSize.y-1);
-             ::MoveToEx(hdc,SSize.x-1,0,NULL);
-               ::LineTo(hdc,SSize.x-1,SSize.y);
-             DeleteObject(hpen);
-             hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNSHADOW));
-             SelectObject(hdc,hpen);
-             ::MoveToEx(hdc,0,SSize.y-2,NULL);
-               ::LineTo(hdc,0,0);
-               ::LineTo(hdc,SSize.x-1,0);
-             DeleteObject(hpen);
-             hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_3DDKSHADOW));
-             SelectObject(hdc,hpen);
-             ::MoveToEx(hdc,1,SSize.y-3,NULL);
-               ::LineTo(hdc,1,1);
-               ::LineTo(hdc,SSize.x-2,1);
-             DeleteObject(hpen);
-             hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_3DLIGHT));
-             SelectObject(hdc,hpen);
-             ::MoveToEx(hdc,1,SSize.y-2,NULL);
-               ::LineTo(hdc,SSize.x-2,SSize.y-2);
-               ::LineTo(hdc,SSize.x-2,0);
-             DeleteObject(hpen);
-            }
-    break;
-    case bRaised:
-         if (ABorderSize==bSingle)
-            {
-             hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNSHADOW));
-             SelectObject(hdc,hpen);
-             ::MoveToEx(hdc,0,SSize.y-1,NULL);
-               ::LineTo(hdc,SSize.x,SSize.y-1);
-             ::MoveToEx(hdc,SSize.x-1,0,NULL);
-               ::LineTo(hdc,SSize.x-1,SSize.y);
-             DeleteObject(hpen);
-             hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNHIGHLIGHT));
-             SelectObject(hdc,hpen);
-             ::MoveToEx(hdc,0,SSize.y-1,NULL);
-               ::LineTo(hdc,0,0);
-               ::LineTo(hdc,SSize.x,0);
-             DeleteObject(hpen);
-            }
-         else
-            {
-             hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_3DDKSHADOW));
-             SelectObject(hdc,hpen);
-             ::MoveToEx(hdc,0,SSize.y-1,NULL);
-               ::LineTo(hdc,SSize.x,SSize.y-1);
-             ::MoveToEx(hdc,SSize.x-1,0,NULL);
-               ::LineTo(hdc,SSize.x-1,SSize.y);
-             DeleteObject(hpen);
-             hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_3DLIGHT));
-             SelectObject(hdc,hpen);
-             ::MoveToEx(hdc,0,SSize.y-2,NULL);
-               ::LineTo(hdc,0,0);
-               ::LineTo(hdc,SSize.x-1,0);
-             DeleteObject(hpen);
-             hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNHIGHLIGHT));
-             SelectObject(hdc,hpen);
-             ::MoveToEx(hdc,1,SSize.y-3,NULL);
-               ::LineTo(hdc,1,1);
-               ::LineTo(hdc,SSize.x-2,1);
-             DeleteObject(hpen);
-             hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNSHADOW));
-             SelectObject(hdc,hpen);
-             ::MoveToEx(hdc,1,SSize.y-2,NULL);
-               ::LineTo(hdc,SSize.x-2,SSize.y-2);
-               ::LineTo(hdc,SSize.x-2,0);
-             DeleteObject(hpen);
-            }
-    break;
-    case bkNone:
-    retrect->left = thisrect->left;
-    retrect->right = thisrect->right;
-    retrect->top = thisrect->top;
-    retrect->bottom = thisrect->bottom;
-    break;
+	case abkRect:
+		 if (ABorderSize==absSingle)
+			{
+			 hbrush = CreateSolidBrush(GetSysColor(COLOR_WINDOWFRAME));
+			 RECT temprect = *thisrect;
+			 temprect.left++; temprect.top++; temprect.right--; temprect.bottom--;
+			 ::FrameRect(hdc,&temprect,hbrush);
+			 DeleteObject(hbrush);
+			}
+		 else
+			{
+			 hbrush = CreateSolidBrush(GetSysColor(COLOR_WINDOWFRAME));
+			 RECT temprect = *thisrect;
+			 temprect.left++; temprect.top++; temprect.right--; temprect.bottom--;
+			 ::FrameRect(hdc,&temprect,hbrush);
+			 temprect.left++; temprect.top++; temprect.right--; temprect.bottom--;
+			 ::FrameRect(hdc,&temprect,hbrush);
+			 DeleteObject(hbrush);
+			}
+	break;
+	case abkLowered:
+		 if (ABorderSize==absSingle)
+			{
+			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNHIGHLIGHT));
+			 SelectObject(hdc,hpen);
+			 ::MoveToEx(hdc,0,SSize.y-1,NULL);
+			   ::LineTo(hdc,SSize.x,SSize.y-1);
+			 ::MoveToEx(hdc,SSize.x-1,0,NULL);
+			   ::LineTo(hdc,SSize.x-1,SSize.y);
+			 DeleteObject(hpen);
+			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNSHADOW));
+			 SelectObject(hdc,hpen);
+			 ::MoveToEx(hdc,0,SSize.y-1,NULL);
+			   ::LineTo(hdc,0,0);
+			   ::LineTo(hdc,SSize.x,0);
+			 DeleteObject(hpen);
+			}
+		 else
+			{
+			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNHIGHLIGHT));
+			 SelectObject(hdc,hpen);
+			 ::MoveToEx(hdc,0,SSize.y-1,NULL);
+			   ::LineTo(hdc,SSize.x,SSize.y-1);
+			 ::MoveToEx(hdc,SSize.x-1,0,NULL);
+			   ::LineTo(hdc,SSize.x-1,SSize.y);
+			 DeleteObject(hpen);
+			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNSHADOW));
+			 SelectObject(hdc,hpen);
+			 ::MoveToEx(hdc,0,SSize.y-2,NULL);
+			   ::LineTo(hdc,0,0);
+			   ::LineTo(hdc,SSize.x-1,0);
+			 DeleteObject(hpen);
+			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_3DDKSHADOW));
+			 SelectObject(hdc,hpen);
+			 ::MoveToEx(hdc,1,SSize.y-3,NULL);
+			   ::LineTo(hdc,1,1);
+			   ::LineTo(hdc,SSize.x-2,1);
+			 DeleteObject(hpen);
+			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_3DLIGHT));
+			 SelectObject(hdc,hpen);
+			 ::MoveToEx(hdc,1,SSize.y-2,NULL);
+			   ::LineTo(hdc,SSize.x-2,SSize.y-2);
+			   ::LineTo(hdc,SSize.x-2,0);
+			 DeleteObject(hpen);
+			}
+	break;
+	case abkRaised:
+		 if (ABorderSize==absSingle)
+			{
+			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNSHADOW));
+			 SelectObject(hdc,hpen);
+			 ::MoveToEx(hdc,0,SSize.y-1,NULL);
+			   ::LineTo(hdc,SSize.x,SSize.y-1);
+			 ::MoveToEx(hdc,SSize.x-1,0,NULL);
+			   ::LineTo(hdc,SSize.x-1,SSize.y);
+			 DeleteObject(hpen);
+			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNHIGHLIGHT));
+			 SelectObject(hdc,hpen);
+			 ::MoveToEx(hdc,0,SSize.y-1,NULL);
+			   ::LineTo(hdc,0,0);
+			   ::LineTo(hdc,SSize.x,0);
+			 DeleteObject(hpen);
+			}
+		 else
+			{
+			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_3DDKSHADOW));
+			 SelectObject(hdc,hpen);
+			 ::MoveToEx(hdc,0,SSize.y-1,NULL);
+			   ::LineTo(hdc,SSize.x,SSize.y-1);
+			 ::MoveToEx(hdc,SSize.x-1,0,NULL);
+			   ::LineTo(hdc,SSize.x-1,SSize.y);
+			 DeleteObject(hpen);
+			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_3DLIGHT));
+			 SelectObject(hdc,hpen);
+			 ::MoveToEx(hdc,0,SSize.y-2,NULL);
+			   ::LineTo(hdc,0,0);
+			   ::LineTo(hdc,SSize.x-1,0);
+			 DeleteObject(hpen);
+			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNHIGHLIGHT));
+			 SelectObject(hdc,hpen);
+			 ::MoveToEx(hdc,1,SSize.y-3,NULL);
+			   ::LineTo(hdc,1,1);
+			   ::LineTo(hdc,SSize.x-2,1);
+			 DeleteObject(hpen);
+			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNSHADOW));
+			 SelectObject(hdc,hpen);
+			 ::MoveToEx(hdc,1,SSize.y-2,NULL);
+			   ::LineTo(hdc,SSize.x-2,SSize.y-2);
+			   ::LineTo(hdc,SSize.x-2,0);
+			 DeleteObject(hpen);
+			}
+	break;
+	case bkNone:
+	retrect->left = thisrect->left;
+	retrect->right = thisrect->right;
+	retrect->top = thisrect->top;
+	retrect->bottom = thisrect->bottom;
+	break;
    }
-if (ABorderSize==bSingle)
+if (ABorderSize==absSingle)
    {
-    retrect->left = thisrect->left+1;
-    retrect->right = thisrect->right-1;
-    retrect->top = thisrect->top+1;
-    retrect->bottom = thisrect->bottom-1;
+	retrect->left = thisrect->left+1;
+	retrect->right = thisrect->right-1;
+	retrect->top = thisrect->top+1;
+	retrect->bottom = thisrect->bottom-1;
    }
 else
    {
-    retrect->left = thisrect->left+2;
-    retrect->right = thisrect->right-2;
+	retrect->left = thisrect->left+2;
+	retrect->right = thisrect->right-2;
     retrect->top = thisrect->top+2;
     retrect->bottom = thisrect->bottom-2;
    }

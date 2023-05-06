@@ -1,7 +1,7 @@
 /* --------------------------------------------------------------------------
  *
  * SSTSOFT User Components Library for VCL programing
- * Copyright (C) 2000-2020, Stanislaw Stasiak, All Rights Reserved
+ * Copyright (C) 2004-2018, Stanislaw Stasiak, All Rights Reserved
  *
  * This library is a freeware; it may be used and distributed according to
  * the terms of The MIT License.
