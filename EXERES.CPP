@@ -26,6 +26,7 @@
  *
  * --------------------------------------------------------------------------*/
 #include <vcl.h>
+#include <Windows.hpp>
 #pragma hdrstop
 #include "exeres.h"
 #pragma package(smart_init)

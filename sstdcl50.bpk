@@ -45,8 +45,8 @@
     <PFLAGS value="-N2$(BCB)\lib -N0$(BCB)\lib -$Y+ -$W -$U -$T -$R -$Q -$B -v -JPHN -M"/>
     <RFLAGS value=""/>
     <AFLAGS value="/mx /w2 /zd"/>
-    <LFLAGS value="-l$(BCB)\lib -I$(BCB)\lib -D&quot;SSTSOFT Components&quot; -Rr -Gz -c- -aa -Tpp -GD 
-      -s -Gl -Gi -v"/>
+    <LFLAGS value="-l$(BCB)\lib -I$(BCB)\lib -D&quot;SSTSOFT Components&quot; -aa -Tpp -GD -s -Gl -Gi 
+      -M -v"/>
   </OPTIONS>
   <LINKER>
     <ALLOBJ value="c0pkg32.obj $(PACKAGES) sysinit.obj $(OBJFILES)"/>

@@ -25,20 +25,12 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * --------------------------------------------------------------------------*/
-#ifndef exeinfoH
-#define exeinfoH
+#ifndef __exeinfo_HDR__
+#define __exeinfo_HDR__
 //---------------------------------------------------------------------------
 #include <stdio.h>
 #if __BORLANDC__ < 0x550
-#include <Buttons.hpp>
-#include <StdCtrls.hpp>
 #include <Controls.hpp>
-#include <Forms.hpp>
-#include <Graphics.hpp>
-#include <Classes.hpp>
-#include <SysUtils.hpp>
-#include <Windows.hpp>
-#include <System.hpp>
 #endif
 //---------------------------------------------------------------------------
 class PACKAGE TExeInformation : public TComponent

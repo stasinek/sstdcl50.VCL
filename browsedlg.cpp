@@ -26,8 +26,14 @@
  *
  * --------------------------------------------------------------------------*/
 #include <vcl.h>
+#include <shlobj.h>
+#include <shellapi.h>
+#include <Forms.hpp>
+#include <SysUtils.hpp>
+#include <Classes.hpp>
+#include <Dialogs.hpp>
 #pragma hdrstop
-#include "BrowseDlg.h"
+#include "BROWSEDLG.h"
 #pragma package(smart_init)
 //---------------------------------------------------------------------------
 

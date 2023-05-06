@@ -44,6 +44,14 @@ SHOWING:
 
 */
 #include <vcl.h>
+#include <Forms.hpp>
+#include <Graphics.hpp>
+#include <Classes.hpp>
+#include <SysUtils.hpp>
+#include <Windows.hpp>
+#include <System.hpp>
+#include <Buttons.hpp>
+#include <StdCtrls.hpp>
 #pragma hdrstop
 #include "exeinfo.h"
 #pragma package(smart_init)

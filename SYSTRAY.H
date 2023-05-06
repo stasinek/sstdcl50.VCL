@@ -9,14 +9,11 @@ Description :	Component for Borland C++ Builder V1 that places an icon in
 		the Systray (near the clock).
 */
 //---------------------------------------------------------------------------
-#ifndef SysTray_H
-#define SysTray_H
+#ifndef __SYSTRAY_HDR__
+#define __SYSTRAY_HDR__
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
-#include <StdCtrls.hpp>
 #include <Windows.hpp>
-#include <Graphics.hpp>
-
 #define ICON_ID 		WM_USER+1
 #define TWMNOTIFYICON	WM_USER+2
 //---------------------------------------------------------------------------

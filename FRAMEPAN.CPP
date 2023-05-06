@@ -26,6 +26,8 @@
  *
  * --------------------------------------------------------------------------*/
 #include <vcl.h>
+#include <Classes.hpp>
+#include <Windows.hpp>
 #pragma hdrstop
 #include "FRAMEPAN.H"
 #pragma package(smart_init)

@@ -8,8 +8,6 @@
 //---------------------------------------------------------------------------
 #include <Controls.hpp>
 #include <Graphics.hpp>
-#include <Classes.hpp>
-#include <Windows.hpp>
 //---------------------------------------------------------------------------
 const int iAlignLeft   = 0;                         // Align Left
 const int iAlignCenter = 1;                         // Align Center

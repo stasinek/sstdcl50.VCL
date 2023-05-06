@@ -10,6 +10,8 @@ Description :	Component for Borland C++ Builder V1 that places an icon in
 */
 //---------------------------------------------------------------------------
 #include <vcl.h>
+#include <StdCtrls.hpp>
+#include <Graphics.hpp>
 #pragma hdrstop
 #include <shellapi.h>
 #include "systray.h"

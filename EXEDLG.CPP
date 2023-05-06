@@ -26,6 +26,14 @@
  *
  * --------------------------------------------------------------------------*/
 #include <vcl.h>
+#include <Buttons.hpp>
+#include <StdCtrls.hpp>
+#include <Forms.hpp>
+#include <Graphics.hpp>
+#include <Classes.hpp>
+#include <SysUtils.hpp>
+#include <Windows.hpp>
+#include <System.hpp>
 #pragma hdrstop
 #include "exedlg.h"
 #pragma package(smart_init)

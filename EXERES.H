@@ -1,9 +1,8 @@
 //---------------------------------------------------------------------------
-#ifndef exeresH
-#define exeresH
+#ifndef __exeres_HDR__
+#define __exeres_HDR__
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
-#include <Windows.hpp>
 #include "handlelist.h"
 //---------------------------------------------------------------------------
 class PACKAGE TExeResource : public TComponent
