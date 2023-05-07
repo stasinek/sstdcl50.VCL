@@ -25,10 +25,16 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * --------------------------------------------------------------------------*/
-#ifndef __BROWSEDLG_HDR__
-#define __BROWSEDLG_HDR__
+#ifndef BrowseDlgH
+#define BrowseDlgH
 //---------------------------------------------------------------------------
+#include <SysUtils.hpp>
 #include <Controls.hpp>
+#include <Classes.hpp>
+#include <Forms.hpp>
+#include <Dialogs.hpp>
+#include <shlobj.h>
+#include <shellapi.h>
 //---------------------------------------------------------------------------
 typedef enum BrowseFlag { bdBrowseForComputer,bdBrowseForPrinter,//bdStatusText
 	                      bdDontGoBelowDomain,bdReturnFsAncestors,

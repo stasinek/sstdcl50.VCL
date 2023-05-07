@@ -41,9 +41,20 @@ SHOWING:
      MinorVersion
      Release
      Build
-
 */
 #include <vcl.h>
+#if __BORLANDC__ > 0x550
+#include <Vcl.Controls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.Graphics.hpp>
+#include <Classes.hpp>
+#include <SysUtils.hpp>
+#include <Windows.hpp>
+#include <System.hpp>
+#include <Vcl.Buttons.hpp>
+#include <Vcl.StdCtrls.hpp>
+#else
+#include <Controls.hpp>
 #include <Forms.hpp>
 #include <Graphics.hpp>
 #include <Classes.hpp>
@@ -52,6 +63,7 @@ SHOWING:
 #include <System.hpp>
 #include <Buttons.hpp>
 #include <StdCtrls.hpp>
+#endif
 #pragma hdrstop
 #include "exeinfo.h"
 #pragma package(smart_init)
@@ -296,7 +308,7 @@ return AnsiString(cstr);
 int __fastcall TExeInformation::GetFileVersionField(char *afilename, char *ainfo, char *aret, int aretmax, DWORD *adwver)
 {
 DWORD hVersion;
-DWORD vis = GetFileVersionInfoSize(afilename,&hVersion);
+DWORD vis = GetFileVersionInfoSizeA(afilename,&hVersion);
 if (vis==0)
    {return 0;
    }

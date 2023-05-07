@@ -543,7 +543,7 @@ FBarData->Add(AColorValue,AValueValue);
 // ITEMS
 //---------------------------------------------------------------------------
 
-__fastcall __Items::__Items()
+__Items::__Items()
 {
 Item = (__Item*)LocalAlloc(LMEM_MOVEABLE,sizeof(__Item)*(8));
 Item[0].Color = clRed;
@@ -552,7 +552,7 @@ Count = 0;
 }
 //---------------------------------------------------------------------------
 
-__fastcall __Items::~__Items()
+__Items::~__Items()
 {
 LocalFree((void*)Item);
 }

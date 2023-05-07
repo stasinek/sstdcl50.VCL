@@ -32,7 +32,6 @@
 
 //---------------------------------------------------------------------------
 #include <vcl.h>
-#include <Classes.hpp>
 #include <Windows.hpp>
 #pragma hdrstop
 #include "HINTBOX.H"

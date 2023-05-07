@@ -6,8 +6,17 @@
 #ifndef __hintbox_HDR__
 #define __hintbox_HDR__
 //---------------------------------------------------------------------------
-#include <Controls.hpp>
-#include <Graphics.hpp>
+#if __BORLANDC__ > 0x0550
+#include <Vcl.Comctrls.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.Graphics.hpp>
+#include <Vcl.Classes.hpp>
+#else
+#include <VCL/Comctrls.hpp>
+#include <VCL/Controls.hpp>
+#include <VCL/Graphics.hpp>
+#include <VCL/Classes.hpp>
+#endif
 //---------------------------------------------------------------------------
 const int iAlignLeft   = 0;                         // Align Left
 const int iAlignCenter = 1;                         // Align Center

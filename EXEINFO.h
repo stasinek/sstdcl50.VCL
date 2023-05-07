@@ -29,7 +29,9 @@
 #define __exeinfo_HDR__
 //---------------------------------------------------------------------------
 #include <stdio.h>
-#if __BORLANDC__ < 0x550
+#if __BORLANDC__ > 0x550
+#include <Vcl.Controls.hpp>
+#else
 #include <Controls.hpp>
 #endif
 //---------------------------------------------------------------------------

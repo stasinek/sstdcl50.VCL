@@ -12,8 +12,12 @@ Description :	Component for Borland C++ Builder V1 that places an icon in
 #ifndef __SYSTRAY_HDR__
 #define __SYSTRAY_HDR__
 //---------------------------------------------------------------------------
-#include <Classes.hpp>
-#include <Windows.hpp>
+#if __BORLANDC__ > 0x0550
+#include <Vcl.Classes.hpp>
+#else
+#include <Vcl/Classes.hpp>
+#endif
+
 #define ICON_ID 		WM_USER+1
 #define TWMNOTIFYICON	WM_USER+2
 //---------------------------------------------------------------------------

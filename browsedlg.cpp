@@ -26,13 +26,25 @@
  *
  * --------------------------------------------------------------------------*/
 #include <vcl.h>
+#if __BORLANDC__ > 0x550
+#include <Vcl.SysUtils.hpp>
+#include <Vcl.Classes.hpp>
+#include <Vcl.Dialogs.hpp>
+#include <Vcl.Classes.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.Dialogs.hpp>
+#else
+#include <VCL/SysUtils.hpp>
+#include <VCL/Classes.hpp>
+#include <VCL/Dialogs.hpp>
+#include <VCL/Classes.hpp>
+#include <VCL/Forms.hpp>
+#include <VCL/Dialogs.hpp>
+#endif
 #include <shlobj.h>
 #include <shellapi.h>
-#include <Forms.hpp>
-#include <SysUtils.hpp>
-#include <Classes.hpp>
-#include <Dialogs.hpp>
 #pragma hdrstop
+//---------------------------------------------------------------------------
 #include "BROWSEDLG.h"
 #pragma package(smart_init)
 //---------------------------------------------------------------------------

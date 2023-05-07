@@ -30,6 +30,8 @@
 //---------------------------------------------------------------------------
 #include <Controls.hpp>
 #include <Graphics.hpp>
+#include <Classes.hpp>
+#include <Windows.hpp>
 //---------------------------------------------------------------------------
 
 enum TBorderKind { abkNone, abkRect, abkLowered, abkRaised };

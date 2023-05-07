@@ -10,11 +10,23 @@ Description :	Component for Borland C++ Builder V1 that places an icon in
 */
 //---------------------------------------------------------------------------
 #include <vcl.h>
-#include <StdCtrls.hpp>
-#include <Graphics.hpp>
-#pragma hdrstop
+#if __BORLANDC__ > 0x0550
+#include <Vcl.Classes.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Graphics.hpp>
+#include <Vcl.Classes.hpp>
+#else
+#include <Vcl/Graphics.hpp>
+#include <Vcl/Classes.hpp>
+#include <Vcl/StdCtrls.hpp>
+#include <Vcl/Graphics.hpp>
+#include <Vcl/Classes.hpp>
+#endif
+#include <Windows.hpp>
 #include <shellapi.h>
-#include "systray.h"
+#pragma hdrstop
+//---------------------------------------------------------------------------
+#include "SYSTRAY.h"
 #pragma package(smart_init)
 //---------------------------------------------------------------------------
 

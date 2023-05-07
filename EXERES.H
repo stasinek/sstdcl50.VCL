@@ -2,7 +2,11 @@
 #ifndef __exeres_HDR__
 #define __exeres_HDR__
 //---------------------------------------------------------------------------
-#include <Classes.hpp>
+#if __BORLANDC__ > 0x0550
+#include <Vcl.Classes.hpp>
+#else
+#include <VCL/Classes.hpp>
+#endif
 #include "handlelist.h"
 //---------------------------------------------------------------------------
 class PACKAGE TExeResource : public TComponent
