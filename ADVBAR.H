@@ -31,9 +31,9 @@
 #include "ADVBAR.H"
 #include "FRAMEPAN.H"
 #if __BORLANDC__ > 0x0550
-#include <vcl.comctrls.hpp>
+#include <Vcl.Comctrls.hpp>
 #else
-#include <vcl/comctrls.hpp>
+#include <Vcl/Comctrls.hpp>
 #endif
 //---------------------------------------------------------------------------
 //enum TProgressBarOrientation { pbHorizontal, pbVertical };

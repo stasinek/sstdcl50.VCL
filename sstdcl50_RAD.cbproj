@@ -13,18 +13,8 @@
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
     </PropertyGroup>
-    <PropertyGroup Condition="('$(Platform)'=='Android' and '$(Base)'=='true') or '$(Base_Android)'!=''">
-        <Base_Android>true</Base_Android>
-        <CfgParent>Base</CfgParent>
-        <Base>true</Base>
-    </PropertyGroup>
     <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
         <Base_Win32>true</Base_Win32>
-        <CfgParent>Base</CfgParent>
-        <Base>true</Base>
-    </PropertyGroup>
-    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
-        <Base_Win64>true</Base_Win64>
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
@@ -51,6 +41,8 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
+        <SubProcessesNumber>2</SubProcessesNumber>
+        <RunBCCOutOfProcess>true</RunBCCOutOfProcess>
         <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
         <DynamicRTL>true</DynamicRTL>
         <UsePackages>true</UsePackages>
@@ -69,20 +61,13 @@
         <ILINK_LibraryPath>E:\SRC\OBSOLETE\PACKAGES\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <SanitizedProjectName>sstdcl50_RAD</SanitizedProjectName>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Base_Android)'!=''">
-        <PackageImports>AbbreviaCR;bindcomp;bindcompdbx;bindcompfmx;bindengine;CloudService;CustomIPTransport;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXSqliteDriver;dsnap;dsnapxml;FireDAC;FireDACCommon;FireDACCommonDriver;FireDACIBDriver;FireDACSqliteDriver;fmx;fmxFireDAC;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;tethering;xmlrtl;$(PackageImports)</PackageImports>
-        <EnabledSysJars>android-support-v4.dex.jar;cloud-messaging.dex.jar;com-google-android-gms.play-services-ads-base.17.2.0.dex.jar;com-google-android-gms.play-services-ads-identifier.16.0.0.dex.jar;com-google-android-gms.play-services-ads-lite.17.2.0.dex.jar;com-google-android-gms.play-services-ads.17.2.0.dex.jar;com-google-android-gms.play-services-analytics-impl.16.0.8.dex.jar;com-google-android-gms.play-services-analytics.16.0.8.dex.jar;com-google-android-gms.play-services-base.16.0.1.dex.jar;com-google-android-gms.play-services-basement.16.2.0.dex.jar;com-google-android-gms.play-services-gass.17.2.0.dex.jar;com-google-android-gms.play-services-identity.16.0.0.dex.jar;com-google-android-gms.play-services-maps.16.1.0.dex.jar;com-google-android-gms.play-services-measurement-base.16.4.0.dex.jar;com-google-android-gms.play-services-measurement-sdk-api.16.4.0.dex.jar;com-google-android-gms.play-services-stats.16.0.1.dex.jar;com-google-android-gms.play-services-tagmanager-v4-impl.16.0.8.dex.jar;com-google-android-gms.play-services-tasks.16.0.1.dex.jar;com-google-android-gms.play-services-wallet.16.0.1.dex.jar;com-google-firebase.firebase-analytics.16.4.0.dex.jar;com-google-firebase.firebase-common.16.1.0.dex.jar;com-google-firebase.firebase-iid-interop.16.0.1.dex.jar;com-google-firebase.firebase-iid.17.1.1.dex.jar;com-google-firebase.firebase-measurement-connector.17.0.1.dex.jar;com-google-firebase.firebase-messaging.17.5.0.dex.jar;fmx.dex.jar;google-play-billing.dex.jar;google-play-licensing.dex.jar</EnabledSysJars>
-    </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <PackageImports>AbbreviaCR;AbbreviaVCLC;adortl;appanalytics;AsyncProCR;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindcompvclsmp;bindcompvclwinx;bindengine;CloudService;CustomIPTransport;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXMySQLDriver;DBXSqliteDriver;DOSCommandCR;dsnap;dsnapcon;dsnapxml;EssentialsCR;FireDAC;FireDACADSDriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACIBDriver;FireDACMSAccDriver;FireDACMySQLDriver;FireDACPgDriver;FireDACSqliteDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;svn;SynEditCR;SysToolsCR;SysToolsDBCR;tethering;vcl;vclactnband;vcldb;vcldsnap;vcledge;vclFireDAC;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
+        <PackageImports>AbbreviaCR;AbbreviaVCLC;adortl;bcbie;bindcompdbx;bindcompvclsmp;bindcompvclwinx;CloudService;CustomIPTransport;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXMySQLDriver;DBXSqliteDriver;dsnapcon;dsnapxml;EssentialsCR;FireDAC;FireDACADSDriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACIBDriver;FireDACMSAccDriver;FireDACMySQLDriver;FireDACPgDriver;FireDACSqliteDriver;fmxFireDAC;IndyIPClient;IndyIPCommon;IndyIPServer;inet;inetdb;inetdbxpress;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;SynEditCR;SysToolsCR;SysToolsDBCR;vcl;vclactnband;vcldb;vcledge;vclFireDAC;vclie;vclimg;VCLRESTComponents;VclSmp;vclx;xmlrtl;$(PackageImports)</PackageImports>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Base_Win64)'!=''">
-        <PackageImports>adortl;appanalytics;AsyncProCR;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindcompvclsmp;bindcompvclwinx;bindengine;CloudService;CustomIPTransport;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXMySQLDriver;DBXSqliteDriver;dsnap;dsnapcon;dsnapxml;FireDAC;FireDACADSDriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACIBDriver;FireDACMSAccDriver;FireDACMySQLDriver;FireDACPgDriver;FireDACSqliteDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;tethering;vcl;vclactnband;vcldb;vcldsnap;vcledge;vclFireDAC;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
@@ -107,6 +92,9 @@
         <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <BCC_InstructionSet>5</BCC_InstructionSet>
+        <ILINK_Description>SSTSOFT Components</ILINK_Description>
+        <VerInfo_Keys>CompanyName=SSTSOFT;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=Stanislaw Stasiak;LegalTrademarks=;OriginalFilename=sstdcl50_RAD;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
         <BCC_PCHCache>true</BCC_PCHCache>
         <TLIB_PageSize>64</TLIB_PageSize>
@@ -121,27 +109,53 @@
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
     </PropertyGroup>
     <ItemGroup>
+        <CppCompile Include="ADVBAR.CPP">
+            <BuildOrder>13</BuildOrder>
+        </CppCompile>
         <ResFiles Include="ADVBAR.dcr">
             <BuildOrder>4</BuildOrder>
         </ResFiles>
+        <CppCompile Include="BARGRAPH.CPP">
+            <BuildOrder>14</BuildOrder>
+        </CppCompile>
         <ResFiles Include="BARGRAPH.dcr">
             <BuildOrder>6</BuildOrder>
         </ResFiles>
+        <CppCompile Include="BROWSEDLG.cpp">
+            <DependentOn>BROWSEDLG.h</DependentOn>
+            <BuildOrder>15</BuildOrder>
+        </CppCompile>
         <ResFiles Include="BROWSEDLG.dcr">
             <BuildOrder>8</BuildOrder>
         </ResFiles>
+        <CppCompile Include="EXEDLG.CPP">
+            <BuildOrder>16</BuildOrder>
+        </CppCompile>
         <ResFiles Include="EXEDLG.dcr">
             <BuildOrder>10</BuildOrder>
         </ResFiles>
+        <CppCompile Include="EXEINFO.CPP">
+            <BuildOrder>17</BuildOrder>
+        </CppCompile>
         <ResFiles Include="EXEINFO.dcr">
             <BuildOrder>12</BuildOrder>
         </ResFiles>
+        <CppCompile Include="EXERES.CPP">
+            <DependentOn>EXERES.h</DependentOn>
+            <BuildOrder>18</BuildOrder>
+        </CppCompile>
         <ResFiles Include="EXERES.dcr">
             <BuildOrder>14</BuildOrder>
         </ResFiles>
+        <CppCompile Include="FRAMEPAN.CPP">
+            <BuildOrder>19</BuildOrder>
+        </CppCompile>
         <ResFiles Include="FRAMEPAN.dcr">
             <BuildOrder>16</BuildOrder>
         </ResFiles>
+        <CppCompile Include="HINTBOX.CPP">
+            <BuildOrder>20</BuildOrder>
+        </CppCompile>
         <ResFiles Include="HINTBOX.dcr">
             <BuildOrder>18</BuildOrder>
         </ResFiles>
@@ -155,6 +169,9 @@
             <BuildOrder>2</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
+        <CppCompile Include="SYSTRAY.CPP">
+            <BuildOrder>21</BuildOrder>
+        </CppCompile>
         <ResFiles Include="SYSTRAY.dcr">
             <BuildOrder>20</BuildOrder>
         </ResFiles>
@@ -187,7 +204,40 @@
                 <Source>
                     <Source Name="MainSource">sstdcl50_RAD.cpp</Source>
                 </Source>
-                <Excluded_Packages/>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclrtl240.bpl">Embarcadero - RTL Component Editors</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclmlwiz240.bpl">Embarcadero Markup Language Wizards</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclfmxstd240.bpl">Embarcadero FMX Standard Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclsmp240.bpl">Embarcadero Sample Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclxml240.bpl">Embarcadero XML Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\hgide240.bpl">Embarcadero Mercurial Integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\svnide240.bpl">Embarcadero Subversion Integration</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclbindcompfmx240.bpl">Embarcadero LiveBindings Components FireMonkey</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcltethering240.bpl">Embarcadero - Tethering Component Editors</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclact240.bpl">Embarcadero ActionBar Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclemacsedit240.bpl">Embarcadero Editor Emacs Enhancements</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclshare240.bpl">Embarcadero ShareContract Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclwinx240.bpl">Embarcadero WinX Controls</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\samplevisualizers240.bpl">Embarcadero Sample Debugger Visualizers</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclappanalytics240.bpl">Embarcadero Usertility Analytics Component</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclbindcompvcl240.bpl">Embarcadero LiveBindings Components VCL</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclnetwiz240.bpl">Embarcadero Internet Server Wizards</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclmid240.bpl">Embarcadero MyBase DataAccess Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclsmpedit240.bpl">Embarcadero Editor Script Enhancements</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcltouch240.bpl">Embarcadero Touch Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclIndyProtocols240.bpl">Indy 10 Protocols Design Time</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\VirtualTreesCD240.bpl">TurboPack VirtualTree CBuilder designtime package</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\DOSCommandCD240.bpl">TurboPack DOSCommand Designtime Package for CBuilder</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\AsyncProCD240.bpl">TurboPack Async Professional CBuilder Designtime Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\fmxstyledesigner240.bpl">Embarcadero Style Designer Package</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\EssentialsCD240.bpl">TurboPack Essentials CBuilder Designtime package</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\AbbreviaVCLCDesign240.bpl">TurboPack Abbrevia VCL Designtime CBuilder package</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\LockBoxVCLCD240.bpl">TurboPack LockBox CBuilder VCL designtime package</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\PngComponentsCDesign240.bpl">Png Components for CBuilder designtime</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\SynEditCD240.bpl">TurboPack SynEdit CBuilder designtime package</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\OnGuardCD230.bpl">TurboPack OnGuard CBuilder Designtime package</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\LockBox3CD.bpl">TurboPack LockBox 3 CBuilder runtime package</Excluded_Packages>
+                </Excluded_Packages>
             </CPlusPlusBuilder.Personality>
             <Deployment Version="3">
                 <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32270mt.dll" Class="DependencyModule">
@@ -971,9 +1021,7 @@
                 <ProjectRoot Platform="Android64" Name="$(PROJECTNAME)"/>
             </Deployment>
             <Platforms>
-                <Platform value="Android">False</Platform>
                 <Platform value="Win32">True</Platform>
-                <Platform value="Win64">False</Platform>
             </Platforms>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
