@@ -25,19 +25,19 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * --------------------------------------------------------------------------*/
-#ifndef __tsoft_advbar_HDR__
-#define __tsoft_advbar_HDR__
+#ifndef __advbar_HDR__
+#define __advbar_HDR__
 //---------------------------------------------------------------------------
 #include "ADVBAR.H"
 #include "FRAMEPAN.H"
-#if __BORLANDC__ > 0x0550
-#include <Vcl.Comctrls.hpp>
+#if __BORLANDC__ > 0x0551
+#include <vcl.comctrls.hpp>
 #else
-#include <Vcl/Comctrls.hpp>
+#include <vcl/comctrls.hpp>
 #endif
 //---------------------------------------------------------------------------
 //enum TProgressBarOrientation { pbHorizontal, pbVertical };
-//enum TAlignment { taCenter,taLeftJustify, taRightJustify }; //Classes::taCenter
+//enum TAlignment { taCenter, taLeftJustify, taRightJustify }; //Classes::taCenter
 
 class PACKAGE TAdvancedBar : public TGraphicControl
 {
@@ -92,8 +92,8 @@ public:
 __published:
     __property Align;
     __property TProgressBarOrientation Orientation = {read=FOrientation,write=SetOrientation,default=pbHorizontal};
-    __property TBorderKind BorderKind = {read=FBorderKind,write=SetBorderKind,default=abkLowered};
-    __property TBorderSize BorderSize = {read=FBorderSize,write=SetBorderSize,default=absSingle};
+	__property TBorderKind BorderKind = {read=FBorderKind,write=SetBorderKind,default=abkLowered};
+	__property TBorderSize BorderSize = {read=FBorderSize,write=SetBorderSize,default=absSingle};
     __property TColor TextForeColor = {read=FTextForeColor,write=SetTextForeColor,default=clHighlightText};
     __property TColor TextBackColor = {read=FTextBackColor,write=SetTextBackColor,default=clBtnFace};
     __property ParentFont;

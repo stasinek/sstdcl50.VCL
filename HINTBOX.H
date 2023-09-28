@@ -6,7 +6,7 @@
 #ifndef __hintbox_HDR__
 #define __hintbox_HDR__
 //---------------------------------------------------------------------------
-#if __BORLANDC__ > 0x0550
+#if __BORLANDC__ > 0x0551
 #include <Vcl.Comctrls.hpp>
 #include <Vcl.Controls.hpp>
 #include <Vcl.Graphics.hpp>

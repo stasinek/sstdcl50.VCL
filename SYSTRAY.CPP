@@ -10,7 +10,7 @@ Description :	Component for Borland C++ Builder V1 that places an icon in
 */
 //---------------------------------------------------------------------------
 #include <vcl.h>
-#if __BORLANDC__ > 0x0550
+#if __BORLANDC__ > 0x0551
 #include <Vcl.Classes.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Graphics.hpp>

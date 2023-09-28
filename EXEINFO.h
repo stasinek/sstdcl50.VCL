@@ -29,10 +29,10 @@
 #define __exeinfo_HDR__
 //---------------------------------------------------------------------------
 #include <stdio.h>
-#if __BORLANDC__ > 0x550
-#include <Vcl.Controls.hpp>
+#if __BORLANDC__ < 0x551
+#include <VCL/Controls.hpp>
 #else
-#include <Controls.hpp>
+#include <Vcl.Controls>
 #endif
 //---------------------------------------------------------------------------
 class PACKAGE TExeInformation : public TComponent

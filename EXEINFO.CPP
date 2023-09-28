@@ -43,7 +43,7 @@ SHOWING:
      Build
 */
 #include <vcl.h>
-#if __BORLANDC__ > 0x550
+#if __BORLANDC__ > 0x551
 #include <Vcl.Controls.hpp>
 #include <Vcl.Forms.hpp>
 #include <Vcl.Graphics.hpp>

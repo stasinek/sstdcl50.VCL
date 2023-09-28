@@ -45,3 +45,4 @@ journal*.*
 *.bpi
 *.csm
 *.dsk
+*([0-9]).*

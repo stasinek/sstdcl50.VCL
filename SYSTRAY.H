@@ -12,7 +12,7 @@ Description :	Component for Borland C++ Builder V1 that places an icon in
 #ifndef __SYSTRAY_HDR__
 #define __SYSTRAY_HDR__
 //---------------------------------------------------------------------------
-#if __BORLANDC__ > 0x0550
+#if __BORLANDC__ > 0x0551
 #include <Vcl.Classes.hpp>
 #else
 #include <Vcl/Classes.hpp>
