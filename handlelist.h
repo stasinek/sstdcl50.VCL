@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------
-#ifndef __handlelist_HDR__
-#define __handlelist_HDR__
+#ifndef __HANDLELIST_h__
+#define __HANDLELIST_h__
 //---------------------------------------------------------------------------
 #include <winbase.h>
 //#include <windows.h>

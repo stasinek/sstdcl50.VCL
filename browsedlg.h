@@ -25,16 +25,14 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * --------------------------------------------------------------------------*/
-#ifndef BrowseDlgH
-#define BrowseDlgH
+#ifndef __BROWSEDLG_h__
+#define __BROWSEDLG_h__
 //---------------------------------------------------------------------------
-#include <SysUtils.hpp>
-#include <Controls.hpp>
-#include <Classes.hpp>
-#include <Forms.hpp>
-#include <Dialogs.hpp>
-#include <shlobj.h>
-#include <shellapi.h>
+#if __BORLANDC__ > 0x551
+	#include <Vcl.Controls.hpp>
+#else
+	#include <Vcl/Controls.hpp>
+#endif
 //---------------------------------------------------------------------------
 typedef enum BrowseFlag { bdBrowseForComputer,bdBrowseForPrinter,//bdStatusText
 	                      bdDontGoBelowDomain,bdReturnFsAncestors,

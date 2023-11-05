@@ -25,14 +25,14 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * --------------------------------------------------------------------------*/
-#ifndef __exeinfo_HDR__
-#define __exeinfo_HDR__
+#ifndef __EXEINFO_h__
+#define __EXEINFO_h__
 //---------------------------------------------------------------------------
 #include <stdio.h>
-#if __BORLANDC__ < 0x551
-#include <VCL/Controls.hpp>
+#if __BORLANDC__ > 0x551
+	#include <Vcl.Controls>
 #else
-#include <Vcl.Controls>
+	#include <Vcl/Controls.hpp>
 #endif
 //---------------------------------------------------------------------------
 class PACKAGE TExeInformation : public TComponent

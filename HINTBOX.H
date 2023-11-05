@@ -3,8 +3,8 @@
 /***************************************************************************/
 
 //---------------------------------------------------------------------------
-#ifndef __hintbox_HDR__
-#define __hintbox_HDR__
+#ifndef __HINTBOX_h__
+#define __HINTBOX_h__
 //---------------------------------------------------------------------------
 #if __BORLANDC__ > 0x0551
 #include <Vcl.Comctrls.hpp>
@@ -12,10 +12,10 @@
 #include <Vcl.Graphics.hpp>
 #include <Vcl.Classes.hpp>
 #else
-#include <VCL/Comctrls.hpp>
-#include <VCL/Controls.hpp>
-#include <VCL/Graphics.hpp>
-#include <VCL/Classes.hpp>
+#include <Vcl/Comctrls.hpp>
+#include <Vcl/Controls.hpp>
+#include <Vcl/Graphics.hpp>
+#include <Vcl/Classes.hpp>
 #endif
 //---------------------------------------------------------------------------
 const int iAlignLeft   = 0;                         // Align Left

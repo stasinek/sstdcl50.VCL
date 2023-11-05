@@ -25,15 +25,15 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * --------------------------------------------------------------------------*/
-#ifndef __advbar_HDR__
-#define __advbar_HDR__
+#ifndef __ADVBAR_h__
+#define __ADVBAR_h__
 //---------------------------------------------------------------------------
 #include "ADVBAR.H"
 #include "FRAMEPAN.H"
 #if __BORLANDC__ > 0x0551
-#include <vcl.comctrls.hpp>
+	#include <Vcl.comctrls.hpp>
 #else
-#include <vcl/comctrls.hpp>
+	#include <Vcl/comctrls.hpp>
 #endif
 //---------------------------------------------------------------------------
 //enum TProgressBarOrientation { pbHorizontal, pbVertical };

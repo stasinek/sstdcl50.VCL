@@ -4,15 +4,15 @@
   <MACROS>
     <VERSION value="BCB.05.03"/>
     <PROJECT value="sstdcl50.bpl"/>
-    <OBJFILES value="&quot;c:\program files (x86)\borland\cbuilder5\lib\sstdcl50.obj&quot; 
-      &quot;c:\program files (x86)\borland\cbuilder5\lib\ADVBAR.obj&quot; 
-      &quot;c:\program files (x86)\borland\cbuilder5\lib\BARGRAPH.obj&quot; 
-      &quot;c:\program files (x86)\borland\cbuilder5\lib\BROWSEDLG.obj&quot; 
-      &quot;c:\program files (x86)\borland\cbuilder5\lib\EXEDLG.obj&quot; 
-      &quot;c:\program files (x86)\borland\cbuilder5\lib\EXEINFO.obj&quot; 
-      &quot;c:\program files (x86)\borland\cbuilder5\lib\EXERES.obj&quot; 
-      &quot;c:\program files (x86)\borland\cbuilder5\lib\FRAMEPAN.obj&quot; 
-      &quot;c:\program files (x86)\borland\cbuilder5\lib\HINTBOX.obj&quot; &quot;c:\program files (x86)\borland\cbuilder5\lib\SYSTRAY.obj&quot;"/>
+    <OBJFILES value="&quot;c:\program files\borland\cbuilder5\lib\sstdcl50.obj&quot; 
+      &quot;c:\program files\borland\cbuilder5\lib\ADVBAR.obj&quot; 
+      &quot;c:\program files\borland\cbuilder5\lib\BARGRAPH.obj&quot; 
+      &quot;c:\program files\borland\cbuilder5\lib\BROWSEDLG.obj&quot; 
+      &quot;c:\program files\borland\cbuilder5\lib\EXEDLG.obj&quot; 
+      &quot;c:\program files\borland\cbuilder5\lib\EXEINFO.obj&quot; 
+      &quot;c:\program files\borland\cbuilder5\lib\EXERES.obj&quot; 
+      &quot;c:\program files\borland\cbuilder5\lib\FRAMEPAN.obj&quot; 
+      &quot;c:\program files\borland\cbuilder5\lib\HINTBOX.obj&quot; &quot;c:\program files\borland\cbuilder5\lib\SYSTRAY.obj&quot;"/>
     <RESFILES value="sstdcl50.res ADVBAR.dcr BARGRAPH.dcr BROWSEDLG.dcr EXEDLG.dcr EXEINFO.dcr 
       EXERES.dcr FRAMEPAN.dcr HINTBOX.dcr SYSTRAY.dcr"/>
     <IDLFILES value=""/>
@@ -79,11 +79,6 @@ LegalTrademarks=
 OriginalFilename=DCLUSR50.BPL
 ProductName=Borland Package Library
 ProductVersion=5.0
-
-[Excluded Packages]
-$(BCB)\Bin\bcb2kaxserver50.bpl=Borland C++Builder COM Server Components Sample Package
-$(BCB)\Bin\bcbsmp50.bpl=Borland C++ Sample Components
-$(BCB)\Bin\dclocx50.bpl=Borland Sample Imported ActiveX Controls
 
 [HistoryLists\hlIncludePath]
 Count=3

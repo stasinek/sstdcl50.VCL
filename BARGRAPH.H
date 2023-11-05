@@ -25,8 +25,8 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * --------------------------------------------------------------------------*/
-#ifndef __bargraph_HDR__
-#define __bargraph_HDR__
+#ifndef __BARGRAPH_h__
+#define __BARGRAPH_h__
 //---------------------------------------------------------------------------
 #include "FRAMEPAN.H"
 //---------------------------------------------------------------------------

@@ -25,13 +25,16 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * --------------------------------------------------------------------------*/
-#ifndef __framepan_HDR__
-#define __framepan_HDR__
+#ifndef __FRAMEPAN_h__
+#define __FRAMEPAN_h__
 //---------------------------------------------------------------------------
-#include <Controls.hpp>
-#include <Graphics.hpp>
-#include <Classes.hpp>
-#include <Windows.hpp>
+#if __BORLANDC__ > 0x0551
+	#include <Vcl.Controls.hpp>
+	#include <Vcl.Graphics.hpp>
+#else
+	#include <Vcl/Controls.hpp>
+	#include <Vcl/Graphics.hpp>
+#endif
 //---------------------------------------------------------------------------
 
 enum TBorderKind { abkNone, abkRect, abkLowered, abkRaised };

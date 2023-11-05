@@ -1,11 +1,11 @@
 //---------------------------------------------------------------------------
-#ifndef __exeres_HDR__
-#define __exeres_HDR__
+#ifndef __EXERES_h__
+#define __EXERES_h__
 //---------------------------------------------------------------------------
 #if __BORLANDC__ > 0x0551
 #include <Vcl.Classes.hpp>
 #else
-#include <VCL/Classes.hpp>
+#include <Vcl/Classes.hpp>
 #endif
 #include "handlelist.h"
 //---------------------------------------------------------------------------

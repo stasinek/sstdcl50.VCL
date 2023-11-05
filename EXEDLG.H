@@ -25,19 +25,13 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * --------------------------------------------------------------------------*/
-#ifndef exedlg_h
-#define exedlg_h
+#ifndef __EXEDLG_h__
+#define __EXEDLG_h__
 //---------------------------------------------------------------------------
-#if __BORLANDC__ < 0x550
-#include <Buttons.hpp>
-#include <StdCtrls.hpp>
-#include <Controls.hpp>
-#include <Forms.hpp>
-#include <Graphics.hpp>
-#include <Classes.hpp>
-#include <SysUtils.hpp>
-#include <Windows.hpp>
-#include <System.hpp>
+#if __BORLANDC__ > 0x551
+	#include <Vcl.Controls.hpp>
+#else
+	#include <Vcl/Controls.hpp>
 #endif
 //---------------------------------------------------------------------------
 class PACKAGE TExeDialog : public TComponent
