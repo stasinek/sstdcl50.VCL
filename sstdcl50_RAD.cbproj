@@ -58,7 +58,7 @@
         <_TCHARMapping>char</_TCHARMapping>
         <Multithreaded>true</Multithreaded>
         <IncludePath>E:\SRC\OBSOLETE\PACKAGES\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>E:\SRC\OBSOLETE\PACKAGES\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <ILINK_LibraryPath>C:\SRC\OBSOLETE\PACKAGES\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <SanitizedProjectName>sstdcl50_RAD</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -92,6 +92,9 @@
         <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\debug\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <IntermediateOutputDir>C:\SRC\OBSOLETE\PACKAGES\RAD\</IntermediateOutputDir>
+        <BPILibOutputDir>C:\SRC\OBSOLETE\PACKAGES\RAD\</BPILibOutputDir>
+        <FinalOutputDir>C:\SRC\OBSOLETE\PACKAGES\RAD\</FinalOutputDir>
         <BCC_InstructionSet>5</BCC_InstructionSet>
         <ILINK_Description>SSTSOFT Components</ILINK_Description>
         <VerInfo_Keys>CompanyName=SSTSOFT;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=Stanislaw Stasiak;LegalTrademarks=;OriginalFilename=sstdcl50_RAD;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
@@ -205,30 +208,7 @@
                     <Source Name="MainSource">sstdcl50_RAD.cpp</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclrtl240.bpl">Embarcadero - RTL Component Editors</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclmlwiz240.bpl">Embarcadero Markup Language Wizards</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclfmxstd240.bpl">Embarcadero FMX Standard Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclsmp240.bpl">Embarcadero Sample Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclxml240.bpl">Embarcadero XML Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\hgide240.bpl">Embarcadero Mercurial Integration</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\svnide240.bpl">Embarcadero Subversion Integration</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclbindcompfmx240.bpl">Embarcadero LiveBindings Components FireMonkey</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcltethering240.bpl">Embarcadero - Tethering Component Editors</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclact240.bpl">Embarcadero ActionBar Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclemacsedit240.bpl">Embarcadero Editor Emacs Enhancements</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclshare240.bpl">Embarcadero ShareContract Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclwinx240.bpl">Embarcadero WinX Controls</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\samplevisualizers240.bpl">Embarcadero Sample Debugger Visualizers</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclappanalytics240.bpl">Embarcadero Usertility Analytics Component</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclbindcompvcl240.bpl">Embarcadero LiveBindings Components VCL</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclnetwiz240.bpl">Embarcadero Internet Server Wizards</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclmid240.bpl">Embarcadero MyBase DataAccess Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclsmpedit240.bpl">Embarcadero Editor Script Enhancements</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcltouch240.bpl">Embarcadero Touch Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclIndyProtocols240.bpl">Indy 10 Protocols Design Time</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\VirtualTreesCD240.bpl">TurboPack VirtualTree CBuilder designtime package</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\DOSCommandCD240.bpl">TurboPack DOSCommand Designtime Package for CBuilder</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\AsyncProCD240.bpl">TurboPack Async Professional CBuilder Designtime Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\fmxstyledesigner240.bpl">Embarcadero Style Designer Package</Excluded_Packages>
                     <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\EssentialsCD240.bpl">TurboPack Essentials CBuilder Designtime package</Excluded_Packages>
                     <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\18.0\bpl\AbbreviaVCLCDesign240.bpl">TurboPack Abbrevia VCL Designtime CBuilder package</Excluded_Packages>
