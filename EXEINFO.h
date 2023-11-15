@@ -30,7 +30,7 @@
 //---------------------------------------------------------------------------
 #include <stdio.h>
 #if __BORLANDC__ > 0x551
-	#include <Vcl.Controls>
+	#include <Controls.hpp>
 #else
 	#include <Vcl/Controls.hpp>
 #endif

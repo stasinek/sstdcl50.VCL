@@ -98,7 +98,6 @@
         <BCC_InstructionSet>5</BCC_InstructionSet>
         <ILINK_Description>SSTSOFT Components</ILINK_Description>
         <VerInfo_Keys>CompanyName=SSTSOFT;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=Stanislaw Stasiak;LegalTrademarks=;OriginalFilename=sstdcl50_RAD;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-        <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
         <BCC_PCHCache>true</BCC_PCHCache>
         <TLIB_PageSize>64</TLIB_PageSize>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>

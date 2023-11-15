@@ -10,7 +10,7 @@
 #include <Vcl.Comctrls.hpp>
 #include <Vcl.Controls.hpp>
 #include <Vcl.Graphics.hpp>
-#include <Vcl.Classes.hpp>
+#include <Classes.hpp>
 #else
 #include <Vcl/Comctrls.hpp>
 #include <Vcl/Controls.hpp>

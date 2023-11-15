@@ -27,10 +27,9 @@
  * --------------------------------------------------------------------------*/
 #include <vcl.h>
 #if __BORLANDC__ > 0x551
-#include <Vcl.SysUtils.hpp>
-#include <Vcl.Classes.hpp>
+#include <System.SysUtils.hpp>
+#include <Classes.hpp>
 #include <Vcl.Dialogs.hpp>
-#include <Vcl.Classes.hpp>
 #include <Vcl.Forms.hpp>
 #include <Vcl.Dialogs.hpp>
 #else

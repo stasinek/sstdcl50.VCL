@@ -3,7 +3,7 @@
 #define __EXERES_h__
 //---------------------------------------------------------------------------
 #if __BORLANDC__ > 0x0551
-#include <Vcl.Classes.hpp>
+#include <Classes.hpp>
 #else
 #include <Vcl/Classes.hpp>
 #endif
