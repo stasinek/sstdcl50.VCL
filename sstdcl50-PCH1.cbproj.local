@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018-01-01 14:17:39.000.175,=rtl.bpi</Transaction>
+    <Transaction>2018-01-01 14:17:39.000.184,=K:\Embarcadero\Studio\Projects\Package1PCH1.h</Transaction>
+    <Transaction>2018-01-13 18:20:42.000.681,=K:\Embarcadero\Studio\Projects\Package1PCH1.h</Transaction>
+    <Transaction>2018-01-13 18:20:42.000.677,=rtl.bpi</Transaction>
+    <Transaction>2023-04-30 15:36:41.976,=rtl.bpi</Transaction>
+    <Transaction>2023-04-30 15:36:41.986,=C:\Users\stasiek\Documents\Embarcadero\Studio\Projects\Package1PCH1.h</Transaction>
+    <Transaction>2023-04-30 15:37:56.591,E:\SRC\OBSOLETE\PACKAGES\sstdcl50-PCH1.h=C:\Users\stasiek\Documents\Embarcadero\Studio\Projects\Package1PCH1.h</Transaction>
+    <Transaction>2023-04-30 15:38:24.041,E:\SRC\OBSOLETE\PACKAGES\sstdcl50-PCH1.cbproj=C:\Users\stasiek\Documents\Embarcadero\Studio\Projects\Package1.cbproj</Transaction>
+    <Transaction>2023-04-30 15:38:59.016,=E:\SRC\OBSOLETE\PACKAGES\ADVBAR.CPP</Transaction>
+    <Transaction>2023-04-30 15:38:59.034,=E:\SRC\OBSOLETE\PACKAGES\ADVBAR.dcr</Transaction>
+    <Transaction>2023-04-30 15:38:59.116,=E:\SRC\OBSOLETE\PACKAGES\BARGRAPH.CPP</Transaction>
+    <Transaction>2023-04-30 15:38:59.132,=E:\SRC\OBSOLETE\PACKAGES\BARGRAPH.dcr</Transaction>
+    <Transaction>2023-04-30 15:38:59.195,=E:\SRC\OBSOLETE\PACKAGES\BROWSEDLG.cpp</Transaction>
+    <Transaction>2023-04-30 15:38:59.212,=E:\SRC\OBSOLETE\PACKAGES\BROWSEDLG.dcr</Transaction>
+    <Transaction>2023-04-30 15:38:59.287,=E:\SRC\OBSOLETE\PACKAGES\EXEDLG.CPP</Transaction>
+    <Transaction>2023-04-30 15:38:59.304,=E:\SRC\OBSOLETE\PACKAGES\EXEDLG.dcr</Transaction>
+    <Transaction>2023-04-30 15:38:59.371,=E:\SRC\OBSOLETE\PACKAGES\EXEINFO.CPP</Transaction>
+    <Transaction>2023-04-30 15:38:59.389,=E:\SRC\OBSOLETE\PACKAGES\EXEINFO.dcr</Transaction>
+    <Transaction>2023-04-30 15:38:59.456,=E:\SRC\OBSOLETE\PACKAGES\EXERES.CPP</Transaction>
+    <Transaction>2023-04-30 15:38:59.475,=E:\SRC\OBSOLETE\PACKAGES\EXERES.dcr</Transaction>
+    <Transaction>2023-04-30 15:38:59.555,=E:\SRC\OBSOLETE\PACKAGES\FRAMEPAN.CPP</Transaction>
+    <Transaction>2023-04-30 15:38:59.576,=E:\SRC\OBSOLETE\PACKAGES\FRAMEPAN.dcr</Transaction>
+    <Transaction>2023-04-30 15:38:59.646,=E:\SRC\OBSOLETE\PACKAGES\HINTBOX.CPP</Transaction>
+    <Transaction>2023-04-30 15:38:59.670,=E:\SRC\OBSOLETE\PACKAGES\HINTBOX.dcr</Transaction>
+    <Transaction>2023-04-30 15:38:59.750,=E:\SRC\OBSOLETE\PACKAGES\SYSTRAY.CPP</Transaction>
+    <Transaction>2023-04-30 15:38:59.771,=E:\SRC\OBSOLETE\PACKAGES\SYSTRAY.dcr</Transaction>
+    <Transaction>2023-04-30 15:39:00.253,=vcl.bpi</Transaction>
+  </Transactions>
+</BorlandProject>

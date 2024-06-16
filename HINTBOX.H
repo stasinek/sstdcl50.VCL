@@ -3,19 +3,19 @@
 /***************************************************************************/
 
 //---------------------------------------------------------------------------
-#ifndef __HINTBOX_h__
-#define __HINTBOX_h__
+#ifndef __hintbox_HDR__
+#define __hintbox_HDR__
 //---------------------------------------------------------------------------
 #if __BORLANDC__ > 0x0551
 #include <Vcl.Comctrls.hpp>
 #include <Vcl.Controls.hpp>
 #include <Vcl.Graphics.hpp>
-#include <Classes.hpp>
+#include <Vcl.Classes.hpp>
 #else
-#include <Vcl/Comctrls.hpp>
-#include <Vcl/Controls.hpp>
-#include <Vcl/Graphics.hpp>
-#include <Vcl/Classes.hpp>
+#include <VCL/Comctrls.hpp>
+#include <VCL/Controls.hpp>
+#include <VCL/Graphics.hpp>
+#include <VCL/Classes.hpp>
 #endif
 //---------------------------------------------------------------------------
 const int iAlignLeft   = 0;                         // Align Left
