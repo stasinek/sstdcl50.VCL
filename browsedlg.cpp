@@ -40,8 +40,6 @@
 #include <VCL/Forms.hpp>
 #include <VCL/Dialogs.hpp>
 #endif
-#include <shlobj.h>
-#include <shellapi.h>
 #pragma hdrstop
 //---------------------------------------------------------------------------
 #include "BROWSEDLG.h"

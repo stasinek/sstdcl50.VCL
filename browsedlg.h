@@ -33,6 +33,8 @@
 #else
 	#include <Vcl/Controls.hpp>
 #endif
+#include <shlobj.hpp>
+#include <shellapi.hpp>
 //---------------------------------------------------------------------------
 typedef enum BrowseFlag { bdBrowseForComputer,bdBrowseForPrinter,//bdStatusText
 	                      bdDontGoBelowDomain,bdReturnFsAncestors,
