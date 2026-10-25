@@ -80,13 +80,17 @@ PaintBorder(Canvas->Handle,&InnerRECT,&thisrect,FBorderKind,FBorderSize);
 }
 //---------------------------------------------------------------------------
 
-RECT *__fastcall TRamka::PaintBorder(HDC hdc, RECT *retrect, RECT *thisrect,TBorderKind ABorderKind,TBorderSize ABorderSize) {
-HBRUSH hbrush; HPEN hpen;
+RECT *__fastcall TRamka::PaintBorder(HDC hdc, RECT *retrect, RECT *thisrect, TBorderKind ABorderKind, TBorderSize ABorderSize)
+{
+HBRUSH hbrush, hbrush_old; HPEN hpen, hpen_old;
 POINT SSize;
+// 2026 fix SelectObject(hdc, hpen_old);
+// Windows will refuse to delete if hpen pen is kept being selected, fix by Claude
+// Otherwise after 10,000 redraws app will crash
 
-static bool SBlock = false;
-while (SBlock==true) Application->ProcessMessages();
-SBlock = true;
+//static bool SBlock = false;
+//while (SBlock==true) Application->ProcessMessages();
+//SBlock = true;
 
 SSize.x = thisrect->right - thisrect->left; SSize.y = thisrect->bottom - thisrect->top;
 
@@ -116,45 +120,51 @@ switch (ABorderKind)
 		 if (ABorderSize==absSingle)
 			{
 			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNHIGHLIGHT));
-			 SelectObject(hdc,hpen);
+			 hpen_old = SelectObject(hdc, hpen);
 			 ::MoveToEx(hdc,0,SSize.y-1,NULL);
 			   ::LineTo(hdc,SSize.x,SSize.y-1);
 			 ::MoveToEx(hdc,SSize.x-1,0,NULL);
 			   ::LineTo(hdc,SSize.x-1,SSize.y);
-			 DeleteObject(hpen);
+			 SelectObject(hdc, hpen_old);
+             DeleteObject(hpen);
 			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNSHADOW));
-			 SelectObject(hdc,hpen);
+             hpen_old = SelectObject(hdc, hpen);
 			 ::MoveToEx(hdc,0,SSize.y-1,NULL);
 			   ::LineTo(hdc,0,0);
 			   ::LineTo(hdc,SSize.x,0);
+             SelectObject(hdc, hpen_old);
 			 DeleteObject(hpen);
 			}
 		 else
 			{
 			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNHIGHLIGHT));
-			 SelectObject(hdc,hpen);
+			 hpen_old = SelectObject(hdc, hpen);
 			 ::MoveToEx(hdc,0,SSize.y-1,NULL);
 			   ::LineTo(hdc,SSize.x,SSize.y-1);
 			 ::MoveToEx(hdc,SSize.x-1,0,NULL);
 			   ::LineTo(hdc,SSize.x-1,SSize.y);
+             SelectObject(hdc, hpen_old);
 			 DeleteObject(hpen);
 			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNSHADOW));
-			 SelectObject(hdc,hpen);
+			 hpen_old = SelectObject(hdc,hpen);
 			 ::MoveToEx(hdc,0,SSize.y-2,NULL);
 			   ::LineTo(hdc,0,0);
 			   ::LineTo(hdc,SSize.x-1,0);
+             SelectObject(hdc, hpen_old);
 			 DeleteObject(hpen);
 			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_3DDKSHADOW));
-			 SelectObject(hdc,hpen);
+			 hpen_old = SelectObject(hdc,hpen);
 			 ::MoveToEx(hdc,1,SSize.y-3,NULL);
 			   ::LineTo(hdc,1,1);
 			   ::LineTo(hdc,SSize.x-2,1);
+             SelectObject(hdc, hpen_old);
 			 DeleteObject(hpen);
 			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_3DLIGHT));
-			 SelectObject(hdc,hpen);
+			 hpen_old = SelectObject(hdc,hpen);
 			 ::MoveToEx(hdc,1,SSize.y-2,NULL);
 			   ::LineTo(hdc,SSize.x-2,SSize.y-2);
 			   ::LineTo(hdc,SSize.x-2,0);
+             SelectObject(hdc, hpen_old);
 			 DeleteObject(hpen);
 			}
 	break;
@@ -162,45 +172,51 @@ switch (ABorderKind)
 		 if (ABorderSize==absSingle)
 			{
 			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNSHADOW));
-			 SelectObject(hdc,hpen);
+			 hpen_old = SelectObject(hdc, hpen);
 			 ::MoveToEx(hdc,0,SSize.y-1,NULL);
 			   ::LineTo(hdc,SSize.x,SSize.y-1);
 			 ::MoveToEx(hdc,SSize.x-1,0,NULL);
 			   ::LineTo(hdc,SSize.x-1,SSize.y);
+             SelectObject(hdc, hpen_old);
 			 DeleteObject(hpen);
 			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNHIGHLIGHT));
-			 SelectObject(hdc,hpen);
+			 hpen_old = SelectObject(hdc,hpen);
 			 ::MoveToEx(hdc,0,SSize.y-1,NULL);
 			   ::LineTo(hdc,0,0);
 			   ::LineTo(hdc,SSize.x,0);
+             SelectObject(hdc, hpen_old);
 			 DeleteObject(hpen);
 			}
 		 else
 			{
 			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_3DDKSHADOW));
-			 SelectObject(hdc,hpen);
+			 hpen_old = SelectObject(hdc,hpen);
 			 ::MoveToEx(hdc,0,SSize.y-1,NULL);
 			   ::LineTo(hdc,SSize.x,SSize.y-1);
 			 ::MoveToEx(hdc,SSize.x-1,0,NULL);
 			   ::LineTo(hdc,SSize.x-1,SSize.y);
+             SelectObject(hdc, hpen_old);
 			 DeleteObject(hpen);
 			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_3DLIGHT));
-			 SelectObject(hdc,hpen);
+			 hpen_old = SelectObject(hdc,hpen);
 			 ::MoveToEx(hdc,0,SSize.y-2,NULL);
 			   ::LineTo(hdc,0,0);
 			   ::LineTo(hdc,SSize.x-1,0);
+             SelectObject(hdc, hpen_old);
 			 DeleteObject(hpen);
 			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNHIGHLIGHT));
-			 SelectObject(hdc,hpen);
+			 hpen_old = SelectObject(hdc,hpen);
 			 ::MoveToEx(hdc,1,SSize.y-3,NULL);
 			   ::LineTo(hdc,1,1);
 			   ::LineTo(hdc,SSize.x-2,1);
+             SelectObject(hdc, hpen_old);
 			 DeleteObject(hpen);
 			 hpen = CreatePen(PS_SOLID,1,GetSysColor(COLOR_BTNSHADOW));
-			 SelectObject(hdc,hpen);
+			 hpen_old = SelectObject(hdc,hpen);
 			 ::MoveToEx(hdc,1,SSize.y-2,NULL);
 			   ::LineTo(hdc,SSize.x-2,SSize.y-2);
 			   ::LineTo(hdc,SSize.x-2,0);
+             SelectObject(hdc, hpen_old);
 			 DeleteObject(hpen);
 			}
 	break;
@@ -225,7 +241,8 @@ else
     retrect->top = thisrect->top+2;
     retrect->bottom = thisrect->bottom-2;
    }
-SBlock = false; return retrect;
+// SBlock = false;
+return retrect;
 }
 //---------------------------------------------------------------------------
 

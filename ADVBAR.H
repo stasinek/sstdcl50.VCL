@@ -30,7 +30,7 @@
 //---------------------------------------------------------------------------
 #include "ADVBAR.H"
 #include "FRAMEPAN.H"
-#if __BORLANDC__ > 0x0551
+#if __BORLANDC__ > 0x0564
 	#include <Vcl.comctrls.hpp>
 #else
 	#include <Vcl/comctrls.hpp>
@@ -66,10 +66,10 @@ private:
 
     void __fastcall SetMin(int Value);
     int   FMin;
-    void __fastcall SetPosition(int Value);
-    int   FPos;
     void __fastcall SetMax(int Value);
     int   FMax;
+    void __fastcall SetPosition(int Value);  // Fix, position must be loaded last after (min,max)
+    int   FPos;
     void __fastcall CalculatePercentDone(void);
     float FPercent;
 
@@ -105,8 +105,8 @@ __published:
     __property TColor BarForeColor = {read=FBarForeColor,write=SetBarForeColor,default=clHighlight};
     __property TColor BarBackColor = {read=FBarBackColor,write=SetBarBackColor,default=clBtnFace};
     __property int Min = {read=FMin,write=SetMin,default=0};
-    __property int Position = {read=FPos,write=SetPosition,default=0};
     __property int Max = {read=FMax,write=SetMax,default=100};
+    __property int Position = {read=FPos,write=SetPosition,default=0};
     __property Visible;
 };
 

@@ -111,8 +111,8 @@ else
 
 void __fastcall TAdvancedBar::ForceRepaint(void)
 {
-while (Block==true) Application->ProcessMessages();
-Block = true;
+//while (Block==true) Application->ProcessMessages();
+//Block = true;
 //---------------------------------------------------
 RECT crect;
 COPY_RECT(crect,ClientRect)
@@ -153,7 +153,7 @@ PaintBar(); PaintText();
 		 FBitmap->Canvas->Handle,
 		 0,0,
 		 SRCCOPY);
-Block = false;
+//Block = false;
 }
 //---------------------------------------------------------------------------
 
@@ -293,16 +293,16 @@ ForceRepaint();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TAdvancedBar::SetPosition(int APosValue)
+void __fastcall TAdvancedBar::SetMax(int AMaxValue)
 {
-SETMINMAXVALUE(FPos,FMin,FMax,APosValue);
+SETMINMAXVALUE(FMax,FMin,INT_MAX,AMaxValue);
 ForceRepaint();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TAdvancedBar::SetMax(int AMaxValue)
+void __fastcall TAdvancedBar::SetPosition(int APosValue)
 {
-SETMINMAXVALUE(FMax,FMin,INT_MAX,AMaxValue);
+SETMINMAXVALUE(FPos,FMin,FMax,APosValue);
 ForceRepaint();
 }
 //---------------------------------------------------------------------------

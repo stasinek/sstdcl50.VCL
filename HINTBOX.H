@@ -46,6 +46,7 @@ private:
      bool   bDrawBox;
      Classes::TStrings *__fastcall GetLines();
      void __fastcall SetLines(Classes::TStrings *Value);
+     void __fastcall SetLines(AnsiString *Value);
      Classes::TStrings *FLines;
      void __fastcall SetFont(TFont *Value);
     TFont *FFont, *OFont;

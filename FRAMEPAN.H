@@ -28,7 +28,7 @@
 #ifndef __FRAMEPAN_h__
 #define __FRAMEPAN_h__
 //---------------------------------------------------------------------------
-#if __BORLANDC__ > 0x0551
+#if __BORLANDC__ > 0x0564
 	#include <Vcl.Controls.hpp>
 	#include <Vcl.Graphics.hpp>
 #else
