@@ -49,7 +49,7 @@ __fastcall TSysTray::TSysTray(TComponent* Owner)
 {
 FHint = "Some Hint";
 FIcon = new Graphics::TIcon;
-FVisible = false;
+FVisible = true;
 
 if (dynamic_cast<TWinControl *>(Owner))
    {
@@ -58,6 +58,10 @@ if (dynamic_cast<TWinControl *>(Owner))
     DefProc = reinterpret_cast<void*>(GetWindowLong(WndHandle,GWL_WNDPROC));
     WndProcInstance = MakeObjectInstance(SubWndProc);
     SetWindowLong(WndHandle,GWL_WNDPROC,reinterpret_cast<long>(WndProcInstance));
+   }
+else
+   {
+        WndHandle = Application->Handle;
    }
 }
 //---------------------------------------------------------------------------
@@ -100,7 +104,11 @@ FHint = AHint;
 void __fastcall TSysTray::AddIcon() 			// Add Icon to the tray
 {
 NOTIFYICONDATA TNID;
-TNID.cbSize = sizeof(NOTIFYICONDATA);
+#if WINVER >= 0x0500
+TNID.cbSize = sizeof(NOTIFYICONDATA); // poprawne dla nowszych systemów
+#else
+TNID.cbSize = NOTIFYICONDATA_V1_SIZE; // dla bardzo starych systemów
+#endif
   TNID.hWnd = WndHandle;
    TNID.uID = ICON_ID;
 TNID.uFlags = NIF_MESSAGE|NIF_ICON|NIF_TIP;

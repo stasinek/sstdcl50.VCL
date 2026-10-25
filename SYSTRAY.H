@@ -46,7 +46,7 @@ public:
     void __fastcall ChangeIcon();
     void __fastcall RemoveIcon();
     __fastcall ~TSysTray();
-
+    void __fastcall SetWndHandle(HWND hWnd) { WndHandle = hWnd; }
 __published:
     __property bool Visible = {read=FVisible, write=SetVisible,default=false};
     __property TIcon *Icon = {read=FIcon, write=SetIcon,default=NULL};
